@@ -42,7 +42,28 @@ class MainGameScene: SKScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     
-    backgroundColor = SKColor.whiteColor()
+    let topColor = TappyBaseColors.skyBlueCIColor()
+    let bottomColor = TappyBaseColors.lightBlueCIColor()
+    let bgTexture = textureWithVerticalGradientOfSize(size, topColor, bottomColor)
+    
+    let bgNode = SKSpriteNode(texture: bgTexture)
+    bgNode.position = CGPointMake(size.width / 2, size.height / 2)
+    bgNode.zPosition = -1
+    
+    addChild(bgNode)
+    
+    // TESTING CLOUDS
+    for index in 0...10 {
+      var indexAsDouble = Double(index)
+      var xPos = 20.0 * (indexAsDouble * 5.0)
+      var yPos = -10.0
+      var position = CGPoint(x: xPos, y: yPos)
+      let cloud = CloudSprite()
+      cloud.position = position
+      cloud.anchorPoint = CGPoint(x: 0, y: 0)
+      addChild(cloud)
+    }
+    
     backgroundMusicPlayer = playBackgroundMusic("background-play.wav")
     
     addBackButton()

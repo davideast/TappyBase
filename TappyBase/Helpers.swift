@@ -41,65 +41,25 @@ func random(#min: CGFloat, max: CGFloat) -> CGFloat {
   return random() * (max - min) + min
 }
 
-func makeColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> SKColor {
-  return SKColor(red: CGFloat(red/255.0),
-    green: CGFloat(green/255.0),
-    blue: CGFloat(blue/255.0),
-    alpha: alpha)
-}
-
-struct TappyBaseColors {
-
-  static func darkGrayColor() -> SKColor  {
-    return makeColor(50, 47, 49, 1.0)
-  }
+func textureWithVerticalGradientOfSize(size: CGSize, topColor: CIColor, bottomColor: CIColor) -> SKTexture {
   
-  static func yellowColor() -> SKColor  {
-    return makeColor(251, 208, 66, 1.0)
-  }
+  let context = CIContext(options: nil)
+  let gradientFilter = CIFilter(name: "CILinearGradient")
+  gradientFilter.setDefaults()
   
-  static func lightBlueColor() -> SKColor {
-    return makeColor(162, 217, 254, 1.0)
-  }
+  let startVector = CIVector(x: size.width/2, y: 0)
+  let endVector = CIVector(x: size.width/2, y: size.height)
   
-  static func skyBlueColor() -> SKColor {
-    return makeColor(41, 177, 253, 1.0)
-  }
+  gradientFilter.setValue(startVector, forKey: "inputPoint0")
+  gradientFilter.setValue(endVector, forKey: "inputPoint1")
   
-  static func nightSkyBlueColor() -> SKColor {
-    return makeColor(2, 29, 44, 1.0)
-  }
+  gradientFilter.setValue(bottomColor, forKey: "inputColor0")
+  gradientFilter.setValue(topColor, forKey: "inputColor1")
   
-}
-
-struct TappyBaseImages {
+  let cgImg = context.createCGImage(gradientFilter.outputImage, fromRect: CGRectMake(0, 0, size.width, size.height))
   
-  static func firebaseSprite() -> String {
-    return "8bit-base"
-  }
+  let image = UIImage(CGImage: cgImg)!
+  let texture = SKTexture(image: image)
   
-  static func titleImage() -> String {
-    return "tappy-base"
-  }
-  
-  static func cloudImage() -> String {
-    return "cloud"
-  }
-}
-
-struct TappyBaseSounds {
-  
-  static func titleMusic() -> String {
-    return "title-music"
-  }
-  
-  static func firebaseTappedSx() -> String {
-    return "base-tap.wav"
-  }
-  
-  static func firebaseMissedSx() -> String {
-    return "missed-base.wav"
-  }
-  
-  
+  return texture
 }

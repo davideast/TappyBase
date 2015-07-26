@@ -15,11 +15,33 @@ class TitleGameScene: SKScene {
   var playButton = SKLabelNode(fontNamed: "PressStart2P")
   var titleLabel: SKSpriteNode!
   
-  var playTapped: (() -> Void)?
+  var clouds = [CloudSprite]()
   
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
-    backgroundColor = TappyBaseColors.skyBlueColor()
+    
+    // GradientNode
+    let topColor = TappyBaseColors.skyBlueCIColor()
+    let bottomColor = TappyBaseColors.lightBlueCIColor()
+    let bgTexture = SKTexture(size: size, topColor: topColor, bottomColor: bottomColor)
+    let bgNode = SKSpriteNode(texture: bgTexture)
+    bgNode.position = CGPointMake(size.width / 2, size.height / 2)
+    bgNode.zPosition = -1
+    
+    addChild(bgNode)
+    
+    // TESTING CLOUDS
+    for index in 0...10 {
+      var indexAsDouble = Double(index)
+      var xPos = 20.0 * (indexAsDouble * 5.0)
+      var yPos = -10.0
+      var position = CGPoint(x: xPos, y: yPos)
+      let cloud = CloudSprite()
+      cloud.position = position
+      cloud.anchorPoint = CGPoint(x: 0, y: 0)
+      addChild(cloud)
+      clouds.append(cloud)
+    }
     
     backgroundMusicPlayer = playBackgroundMusic("title-music.mp3")
     
@@ -32,16 +54,6 @@ class TitleGameScene: SKScene {
     
     addPlayButton()
     addTitleLabel()
-    
-    
-    // TESTING CLOUDS
-    for index in 0...10 {
-      var indexAsDouble = Double(index)
-      var xPos = 20.0 * (indexAsDouble * 5.0)
-      var yPos = -10.0
-      var position = CGPoint(x: xPos, y: yPos)
-      addCloud(position)
-    }
     
   }
   
@@ -112,11 +124,8 @@ class TitleGameScene: SKScene {
     addChild(titleLabel)
   }
   
-  func addCloud(position: CGPoint) {
-    let cloud = CloudSprite()
-    cloud.position = position
-    cloud.anchorPoint = CGPoint(x: 0, y: 0)
-    addChild(cloud)
+  override func update(currentTime: NSTimeInterval) {
+
   }
   
 }

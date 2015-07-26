@@ -33,6 +33,11 @@
 		BBBD125B1B56D13D0011CC6D /* missed-base.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBBD125A1B56D13D0011CC6D /* missed-base.wav */; };
 		BBBF0C9C1B61CC6C008EA651 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BBBF0C9B1B61CC6C008EA651 /* sprites.atlas */; };
 		BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0C9E1B64423F008EA651 /* CloudSprite.swift */; };
+		BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CA01B657C84008EA651 /* FirebaseSprite.swift */; };
+		BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CA31B657DDA008EA651 /* TappyBaseColors.swift */; };
+		BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CA51B657DFA008EA651 /* TappyBaseImages.swift */; };
+		BBBF0CA81B657E3C008EA651 /* TappyBaseSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CA71B657E3C008EA651 /* TappyBaseSounds.swift */; };
+		BBBF0CAA1B657E93008EA651 /* SKTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CA91B657E93008EA651 /* SKTexture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,11 @@
 		BBBD125A1B56D13D0011CC6D /* missed-base.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "missed-base.wav"; sourceTree = "<group>"; };
 		BBBF0C9B1B61CC6C008EA651 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		BBBF0C9E1B64423F008EA651 /* CloudSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSprite.swift; sourceTree = "<group>"; };
+		BBBF0CA01B657C84008EA651 /* FirebaseSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSprite.swift; sourceTree = "<group>"; };
+		BBBF0CA31B657DDA008EA651 /* TappyBaseColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseColors.swift; sourceTree = "<group>"; };
+		BBBF0CA51B657DFA008EA651 /* TappyBaseImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseImages.swift; sourceTree = "<group>"; };
+		BBBF0CA71B657E3C008EA651 /* TappyBaseSounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseSounds.swift; sourceTree = "<group>"; };
+		BBBF0CA91B657E93008EA651 /* SKTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTexture.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +157,7 @@
 				BBBD124E1B568C170011CC6D /* Controllers */,
 				BBBD124D1B568BFA0011CC6D /* Layouts */,
 				BBBD123E1B5689310011CC6D /* Sounds */,
+				BBBF0CA21B657DB6008EA651 /* Utils */,
 				BBBD12181B567D5D0011CC6D /* Supporting Files */,
 				BBBD12251B567D5D0011CC6D /* Images.xcassets */,
 			);
@@ -240,8 +251,20 @@
 			isa = PBXGroup;
 			children = (
 				BBBF0C9E1B64423F008EA651 /* CloudSprite.swift */,
+				BBBF0CA01B657C84008EA651 /* FirebaseSprite.swift */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		BBBF0CA21B657DB6008EA651 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BBBF0CA31B657DDA008EA651 /* TappyBaseColors.swift */,
+				BBBF0CA51B657DFA008EA651 /* TappyBaseImages.swift */,
+				BBBF0CA71B657E3C008EA651 /* TappyBaseSounds.swift */,
+				BBBF0CA91B657E93008EA651 /* SKTexture.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */,
+				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,
 				BBBD12551B568FD10011CC6D /* FirebaseNode.swift in Sources */,
 				BBBD12531B568F920011CC6D /* FirebaseSpriteNode.swift in Sources */,
@@ -398,9 +423,12 @@
 				BBBD12211B567D5D0011CC6D /* GameViewController.swift in Sources */,
 				BBBD12571B569AF90011CC6D /* MainGameScene.swift in Sources */,
 				BBBD121B1B567D5D0011CC6D /* AppDelegate.swift in Sources */,
+				BBBF0CA81B657E3C008EA651 /* TappyBaseSounds.swift in Sources */,
 				BBBD12501B568C530011CC6D /* Helpers.swift in Sources */,
 				BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */,
 				BB9247761B58781C00138AAD /* Game.swift in Sources */,
+				BBBF0CAA1B657E93008EA651 /* SKTexture.swift in Sources */,
+				BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
