@@ -12,7 +12,7 @@ struct Game {
   
 }
 
-struct Player {
+struct FirebasePlayer {
   let gameRef: Firebase
   let playersRef: Firebase
   let playerRef: Firebase

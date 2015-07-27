@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class TappableScene: SKScene {
+class TappableScene: UpdateIntervalScene {
   
   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
     super.touchesBegan(touches, withEvent: event)

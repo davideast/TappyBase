@@ -11,9 +11,9 @@ import SpriteKit
 
 class PlayButton : SKLabelNode, TappableNode {
   
-  var onTapped: () -> ()
+  var onTapped: () -> Void
   
-  init(onTapped: () -> ()) {
+  init(onTapped: () -> Void) {
     self.onTapped = onTapped
     super.init()
     fontName = TappyBaseFonts.mainFont()

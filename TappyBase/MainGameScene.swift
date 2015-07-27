@@ -275,8 +275,7 @@ class MainGameScene: SKScene {
   
   override func update(currentTime: NSTimeInterval) {
     
-    if ( self.lastUpdateTimeInterval > NSTimeInterval(0)) {
-      timeSinceEnemyAdded += currentTime - lastUpdateTimeInterval
+    if ( lastUpdateTimeInterval > NSTimeInterval(0)) {
       totalGameTime += currentTime - lastUpdateTimeInterval
     }
     

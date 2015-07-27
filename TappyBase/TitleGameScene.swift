@@ -5,8 +5,8 @@
 //  Created by deast on 7/15/15.
 //  Copyright (c) 2015 davideast. All rights reserved.
 //
-//  Comes From: Root Scene from GameViewController
-//  Goes To: SinglePlayerScene on the PlayButton's tap
+//  Previous Scene: Root Scene from GameViewController
+//  Next Scene: SinglePlayerScene on the PlayButton's tap
 //
 
 import SpriteKit
@@ -18,7 +18,7 @@ class TitleGameScene: FirebaseCloudScene {
   var titleLabel = TitleLabel()
   
   init(size: CGSize) {
-    super.init(size: size, backgroundMusic: "title-music.mp3", waitForDuation: 0.5)
+    super.init(size: size, backgroundMusic: TappyBaseSounds.titleMusic())
   }
 
   required init?(coder aDecoder: NSCoder) {
