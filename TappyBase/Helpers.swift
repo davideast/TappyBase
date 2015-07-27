@@ -41,6 +41,27 @@ func random(#min: CGFloat, max: CGFloat) -> CGFloat {
   return random() * (max - min) + min
 }
 
+func moveFromLeft(node: SKSpriteNode, size: CGSize, durationMin: CGFloat, durationMax: CGFloat) {
+  // Determine where to spawn the node along the Y axis
+  let actualY = random(min: node.size.height/2, size.height - node.size.height/2)
+  
+  // Position the node slightly off-screen along the right edge,
+  // and along a random position along the Y axis as calculated above
+  node.position = CGPoint(x: size.width + node.size.width/2, y: actualY)
+  
+  // Determine speed of the node
+  let actualDuration = random(min: CGFloat(durationMin), CGFloat(durationMax))
+  
+  // Create the actions
+  let actionMove = SKAction.moveTo(CGPoint(x: -node.size.width/2, y: actualY), duration: NSTimeInterval(actualDuration))
+  let actionMoveDone = SKAction.removeFromParent()
+  let loseAction = SKAction.runBlock() {
+    
+  }
+  node.runAction(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+}
+
+
 func textureWithVerticalGradientOfSize(size: CGSize, topColor: CIColor, bottomColor: CIColor) -> SKTexture {
   
   let context = CIContext(options: nil)

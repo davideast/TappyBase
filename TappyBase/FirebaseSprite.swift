@@ -14,7 +14,7 @@ enum FirebaseSpriteSize {
   case Regular
 }
 
-class FirebaseSprite: SKSpriteNode {
+class FirebaseSprite: SKSpriteNode, TappableNode {
   
   init(size: FirebaseSpriteSize = .Regular) {
     
@@ -27,13 +27,17 @@ class FirebaseSprite: SKSpriteNode {
       imageName = TappyBaseImages.firebaseSprite()
     }
     
-    
     let texture = SKTexture(imageNamed: imageName)
     super.init(texture: texture, color: nil, size: texture.size())
+    name = imageName
   }
   
-  required init(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
+  func tappedAction(scene: SKScene) {
+    println(name! + " is tapped")
   }
   
 }

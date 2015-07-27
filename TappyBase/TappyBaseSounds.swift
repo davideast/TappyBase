@@ -11,7 +11,11 @@ import Foundation
 struct TappyBaseSounds {
   
   static func titleMusic() -> String {
-    return "title-music"
+    return "title-music.mp3"
+  }
+  
+  static func backgroundMusic() -> String {
+    return "background-play.wav"
   }
   
   static func firebaseTappedSx() -> String {
