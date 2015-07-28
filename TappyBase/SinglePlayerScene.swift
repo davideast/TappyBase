@@ -29,50 +29,125 @@ class SinglePlayerScene: CloudScene {
   // - FirebaseSprites Tapped
   // - Length of time?
   
-  let increaseInterval = 30.0
+  let increaseInterval = 20.0
   var addEnemyTimeInterval = NSTimeInterval(1.5) // 1.5 per second
-  var player = Player(lives: 3)
+  var player = Player(lives: 30, firebaseSpritesTapped: 0)
+  
+  // HUD
+  let smallSprite = BoltSprite()
+  var livesLeftNode = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+  
+  var lives: Int {
+    get {
+      return player.lives
+    }
+    set {
+      player.lives = newValue
+      livesLeftNode.text = newValue.description
+      
+      if newValue == 0 {
+        gameOver()
+      }
+      
+    }
+  }
+  
+  var firebasesTapped: Int {
+    get {
+      return player.firebaseSpritesTapped
+    }
+    set {
+      player.firebaseSpritesTapped = newValue
+    }
+  }
   
   init(size: CGSize) {
     super.init(size: size, backgroundMusic: TappyBaseSounds.backgroundMusic())
-    
-    onIntervalUpdate = { currentTime in
-      
-      if self.timeSinceEnemyAdded > self.addEnemyTimeInterval {
-        self.spawn()
-        self.timeSinceEnemyAdded = 0
-      }
-      
-      var flooredTime = floor(currentTime)
-      var mod = flooredTime % self.increaseInterval
-
-      if mod == 0 {
-        
-        var multiple = floor(currentTime / self.increaseInterval)
-        var decrement = 0.1 * multiple
-        
-        if multiple > 0 && self.addEnemyTimeInterval >= 0 {
-          self.addEnemyTimeInterval = 1.0 - decrement
-        }
-        
-      }
-
-    }
-    
-  }
-  
-  func spawn() {
-    let firebaseSprite = FirebaseSprite()
-    moveFromLeft(firebaseSprite, size, 1.5, 2.3)
-    addChild(firebaseSprite)
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+    onIntervalUpdate = onTimeUpdate
   }
   
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
+    displayHUD()
+    lives = player.lives
+    
+    let waitInterval = SKAction.waitForDuration(5.0)
+    let addLifeUpAction = SKAction.runBlock(spawnLifeUp)
+    let sequence = SKAction.sequence([waitInterval, addLifeUpAction])
+    let spawnLifeUpForever = SKAction.repeatActionForever(sequence)
+    runAction(spawnLifeUpForever)
+    
+  }
+  
+  func onTimeUpdate(totalGameTime: NSTimeInterval) {
+    
+    if timeSinceEnemyAdded > addEnemyTimeInterval {
+      spawnFirebase()
+      timeSinceEnemyAdded = 0
+    }
+    
+    var flooredTime = floor(totalGameTime)
+    var mod = flooredTime % self.increaseInterval
+    
+    if mod == 0 {
+      
+      var multiple = floor(totalGameTime / increaseInterval)
+      var decrement = 0.1 * multiple
+      
+      if multiple >= 0 && addEnemyTimeInterval >= 0 {
+        addEnemyTimeInterval = 1.0 - decrement
+      }
+      
+    }
+    
+  }
+  
+  func spawnFirebase() {
+    
+    // Create a Sprite that increments taps when tapped and
+    // removes a life when FirebaseSprite moves across the screen w/out a tap
+    let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
+      self.firebasesTapped++
+    }, onDone: {
+      self.lives--
+    })
+    
+    moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
+      firebaseSprite.onDone?()
+    })
+    
+    addChild(firebaseSprite)
+  }
+  
+  func spawnLifeUp() {
+    let lifeUpSprite = BoltSprite()
+    moveFromLeft(lifeUpSprite, size, 1.0, 1.0) {
+      lifeUpSprite.removeFromParent()
+    }
+    addChild(lifeUpSprite)
+  }
+  
+  func gameOver() {
+    backgroundMusicPlayer.stop()
+    view?.presentScene(GameOverScene(size: self.view!.bounds.size, hits: player.firebaseSpritesTapped))
+  }
+  
+  func displayHUD() {
+    
+    smallSprite.position = CGPoint(x: size.width - (smallSprite.size.width + livesLeftNode.frame.size.width + 70), y: size.height - (smallSprite.size.height + 20))
+    
+    livesLeftNode.position = CGPoint(x: size.width - (livesLeftNode.frame.size.width + 40), y: size.height - (smallSprite.size.height + 12))
+    
+    livesLeftNode.fontSize = 20
+    
+    smallSprite.anchorPoint = CGPoint(x: 0, y: 0)
+    
+    addChild(smallSprite)
+    addChild(livesLeftNode)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
   }
   
 }

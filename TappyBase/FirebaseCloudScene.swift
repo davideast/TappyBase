@@ -37,7 +37,9 @@ class FirebaseCloudScene: CloudScene {
     
     // Create sprite
     let firebaseNode = FirebaseSprite()
-    moveFromLeft(firebaseNode, size, 1.0, 1.7)
+    moveFromLeft(firebaseNode, size, 1.0, 1.7, {
+      SKAction.removeFromParent()
+    })
     addChild(firebaseNode)
     
   }

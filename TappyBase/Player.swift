@@ -10,4 +10,5 @@ import Foundation
 
 struct Player {
   var lives: Int
+  var firebaseSpritesTapped: Int
 }

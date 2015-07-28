@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E00F9DFC9B85D470E615D27 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3629360D74BA2925559B4A /* libPods.a */; };
-		BB9247761B58781C00138AAD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9247751B58781C00138AAD /* Game.swift */; };
+		BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9247751B58781C00138AAD /* FirebasePlayer.swift */; };
 		BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA138371B5B3D63005FAEEC /* GameOverScene.swift */; };
 		BBA1383A1B5B3F4A005FAEEC /* game-over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBA138391B5B3F4A005FAEEC /* game-over.mp3 */; };
 		BBA1383C1B5B4007005FAEEC /* 8-bit-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBA1383B1B5B4007005FAEEC /* 8-bit-music.mp3 */; };
@@ -49,6 +49,9 @@
 		BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CC81B66AD68008EA651 /* TitleLabel.swift */; };
 		BBBF0CCB1B66BC28008EA651 /* UpdateIntervalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CCA1B66BC28008EA651 /* UpdateIntervalScene.swift */; };
 		BBBF0CCD1B66BF1B008EA651 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CCC1B66BF1B008EA651 /* Player.swift */; };
+		BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */; };
+		BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD21B67A1A2008EA651 /* Game.swift */; };
+		BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		47454BC61F3F63F7B5952D28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		BB9247751B58781C00138AAD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BB9247751B58781C00138AAD /* FirebasePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebasePlayer.swift; sourceTree = "<group>"; };
 		BBA138371B5B3D63005FAEEC /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		BBA138391B5B3F4A005FAEEC /* game-over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-over.mp3"; sourceTree = "<group>"; };
 		BBA1383B1B5B4007005FAEEC /* 8-bit-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8-bit-music.mp3"; sourceTree = "<group>"; };
@@ -109,6 +112,9 @@
 		BBBF0CC81B66AD68008EA651 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BBBF0CCA1B66BC28008EA651 /* UpdateIntervalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIntervalScene.swift; sourceTree = "<group>"; };
 		BBBF0CCC1B66BF1B008EA651 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableFirebaseSprite.swift; sourceTree = "<group>"; };
+		BBBF0CD21B67A1A2008EA651 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoltSprite.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -270,8 +276,9 @@
 			children = (
 				BBBD12521B568F920011CC6D /* FirebaseSpriteNode.swift */,
 				BBBD12541B568FD10011CC6D /* FirebaseNode.swift */,
-				BB9247751B58781C00138AAD /* Game.swift */,
+				BB9247751B58781C00138AAD /* FirebasePlayer.swift */,
 				BBBF0CCC1B66BF1B008EA651 /* Player.swift */,
+				BBBF0CD21B67A1A2008EA651 /* Game.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -282,6 +289,7 @@
 				BBBF0C9E1B64423F008EA651 /* CloudSprite.swift */,
 				BBBF0CA01B657C84008EA651 /* FirebaseSprite.swift */,
 				BBBF0CAE1B668901008EA651 /* TappableNode.swift */,
+				BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */,
 			);
 			name = "Base Sprites";
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 		BBBF0CBB1B66AA5F008EA651 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -523,9 +532,12 @@
 				BBBD12501B568C530011CC6D /* Helpers.swift in Sources */,
 				BBBF0CCD1B66BF1B008EA651 /* Player.swift in Sources */,
 				BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */,
-				BB9247761B58781C00138AAD /* Game.swift in Sources */,
+				BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */,
+				BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */,
 				BBBF0CAA1B657E93008EA651 /* SKTexture.swift in Sources */,
 				BBBF0CB71B669F39008EA651 /* TappableScene.swift in Sources */,
+				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
+				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,
 				BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */,
 				BBBF0CAC1B667DB3008EA651 /* SinglePlayerScene.swift in Sources */,

@@ -48,7 +48,7 @@ class GameOverScene: SKScene {
     if node.name == "replay-button" {
       backgroundMusicPlayer.stop()
       let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-      let mainGameScene = MainGameScene(size: self.size)
+      let mainGameScene = SinglePlayerScene(size: self.size)
       self.view?.presentScene(mainGameScene, transition: reveal)
     }
     

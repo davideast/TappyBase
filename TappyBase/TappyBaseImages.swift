@@ -16,7 +16,11 @@ struct TappyBaseImages {
   }
   
   static func firebaseSpriteSmall() -> String {
-    return "8bit-base-small"
+    return "8-bit-base-small"
+  }
+  
+  static func bolt() -> String {
+    return "8bit-bolt"
   }
   
   static func titleImage() -> String {

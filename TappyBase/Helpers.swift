@@ -41,7 +41,7 @@ func random(#min: CGFloat, max: CGFloat) -> CGFloat {
   return random() * (max - min) + min
 }
 
-func moveFromLeft(node: SKSpriteNode, size: CGSize, durationMin: CGFloat, durationMax: CGFloat) {
+func moveFromLeft(node: SKSpriteNode, size: CGSize, durationMin: CGFloat, durationMax: CGFloat, onDone: () -> Void) {
   // Determine where to spawn the node along the Y axis
   let actualY = random(min: node.size.height/2, size.height - node.size.height/2)
   
@@ -54,7 +54,9 @@ func moveFromLeft(node: SKSpriteNode, size: CGSize, durationMin: CGFloat, durati
   
   // Create the actions
   let actionMove = SKAction.moveTo(CGPoint(x: -node.size.width/2, y: actualY), duration: NSTimeInterval(actualDuration))
-  let actionMoveDone = SKAction.removeFromParent()
+  let actionMoveDone = SKAction.runBlock({
+    onDone()
+  })
   let loseAction = SKAction.runBlock() {
     
   }
