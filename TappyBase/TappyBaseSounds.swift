@@ -26,4 +26,8 @@ struct TappyBaseSounds {
     return "missed-base.wav"
   }
   
+  static func lifeUpSfx() -> String {
+    return "lifeup.wav"
+  }
+  
 }

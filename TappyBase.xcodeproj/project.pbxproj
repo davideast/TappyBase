@@ -52,6 +52,9 @@
 		BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */; };
 		BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD21B67A1A2008EA651 /* Game.swift */; };
 		BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */; };
+		BBF4D2FF1B6A500E00196F8E /* lifeup-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D2FD1B6A500E00196F8E /* lifeup-2.wav */; };
+		BBF4D3001B6A500E00196F8E /* lifeup.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D2FE1B6A500E00196F8E /* lifeup.wav */; };
+		BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableFirebaseSprite.swift; sourceTree = "<group>"; };
 		BBBF0CD21B67A1A2008EA651 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoltSprite.swift; sourceTree = "<group>"; };
+		BBF4D2FD1B6A500E00196F8E /* lifeup-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "lifeup-2.wav"; sourceTree = "<group>"; };
+		BBF4D2FE1B6A500E00196F8E /* lifeup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lifeup.wav; sourceTree = "<group>"; };
+		BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableBoltSprite.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +234,8 @@
 		BBBD123E1B5689310011CC6D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				BBF4D2FD1B6A500E00196F8E /* lifeup-2.wav */,
+				BBF4D2FE1B6A500E00196F8E /* lifeup.wav */,
 				BBA1383D1B5B4029005FAEEC /* sunny-music.mp3 */,
 				BBA1383B1B5B4007005FAEEC /* 8-bit-music.mp3 */,
 				BBA138391B5B3F4A005FAEEC /* game-over.mp3 */,
@@ -338,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */,
+				BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -459,9 +468,11 @@
 				BBBD12411B5689920011CC6D /* tapped-base.wav in Resources */,
 				BBBD12421B5689920011CC6D /* title-music.mp3 in Resources */,
 				BBA1383A1B5B3F4A005FAEEC /* game-over.mp3 in Resources */,
+				BBF4D3001B6A500E00196F8E /* lifeup.wav in Resources */,
 				BBBD121D1B567D5D0011CC6D /* GameScene.sks in Resources */,
 				BBBD12241B567D5D0011CC6D /* Main.storyboard in Resources */,
 				BBBD12441B5689DE0011CC6D /* base-tap.wav in Resources */,
+				BBF4D2FF1B6A500E00196F8E /* lifeup-2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */,
 				BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */,
 				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,

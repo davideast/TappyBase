@@ -23,6 +23,10 @@ struct TappyBaseImages {
     return "8bit-bolt"
   }
   
+  static func boltLarge() -> String {
+    return "8bit-bolt-large"
+  }
+  
   static func titleImage() -> String {
     return "tappy-base"
   }

@@ -9,21 +9,32 @@
 import Foundation
 import SpriteKit
 
-class BoltSprite: SKSpriteNode, TappableNode {
+enum BoltSpriteSize {
+  case Small
+  case Large
+}
+
+class BoltSprite: SKSpriteNode {
+
   
-  var onTapped: (() -> Void)?
-  
-  init() {
-    let texture = SKTexture(imageNamed: TappyBaseImages.bolt())
+  init(size: BoltSpriteSize = .Small) {
+    
+    var imageName = ""
+    
+    switch size {
+    case .Small:
+      imageName = TappyBaseImages.bolt()
+    case .Large:
+      imageName = TappyBaseImages.boltLarge()
+    }
+    
+    let texture = SKTexture(imageNamed: imageName)
     super.init(texture: texture, color: nil, size: texture.size())
+    name = imageName
   }
 
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-  
-  func tappedAction(scene: SKScene) {
-    onTapped?()
   }
   
 }

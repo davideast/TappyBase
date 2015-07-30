@@ -68,9 +68,14 @@ class SinglePlayerScene: CloudScene {
   
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
+    
+    // Create HUD
     displayHUD()
+    
+    // Set initial lives
     lives = player.lives
     
+    // Create life up sprites at specific time interval
     let waitInterval = SKAction.waitForDuration(5.0)
     let addLifeUpAction = SKAction.runBlock(spawnLifeUp)
     let sequence = SKAction.sequence([waitInterval, addLifeUpAction])
@@ -81,11 +86,14 @@ class SinglePlayerScene: CloudScene {
   
   func onTimeUpdate(totalGameTime: NSTimeInterval) {
     
+    // Check spawn rate for Firebases
     if timeSinceEnemyAdded > addEnemyTimeInterval {
       spawnFirebase()
       timeSinceEnemyAdded = 0
     }
     
+    // Check if the the totalTime is a multiple of the default interval
+    // If so, increase the spawn rate
     var flooredTime = floor(totalGameTime)
     var mod = flooredTime % self.increaseInterval
     
@@ -120,8 +128,10 @@ class SinglePlayerScene: CloudScene {
   }
   
   func spawnLifeUp() {
-    let lifeUpSprite = BoltSprite()
-    moveFromLeft(lifeUpSprite, size, 1.0, 1.0) {
+    let lifeUpSprite = TappableBoltSprite { _ in
+      self.lives++
+    }
+    moveFromLeft(lifeUpSprite, size, 1.0, 2.0) {
       lifeUpSprite.removeFromParent()
     }
     addChild(lifeUpSprite)
