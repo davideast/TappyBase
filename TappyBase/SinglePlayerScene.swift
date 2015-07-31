@@ -80,11 +80,7 @@ class SinglePlayerScene: CloudScene {
   
   init(size: CGSize) {
     
-    let sequence = TimeSequence(start: 0.0, end: 5.0, spawnRate: 2.0)
-    let otherSeq = TimeSequence(start: 0.0, end: 5.0, spawnRate: 3.0)
-    let stageOne = Stage(number: 1, timeSequences: [sequence])
-    let stageTwo = Stage(number: 2, timeSequences: [otherSeq])
-    stages = [1: stageOne, 2: stageTwo]
+    stages = TappyBaseStages.all()
     
     super.init(size: size, backgroundMusic: TappyBaseSounds.backgroundMusic())
     onIntervalUpdate = onTimeUpdate
@@ -103,21 +99,37 @@ class SinglePlayerScene: CloudScene {
     lives = player.lives
     
     // Create life up sprites at specific time interval
-    let waitInterval = SKAction.waitForDuration(5.0)
+    let waitInterval = SKAction.waitForDuration(15.0)
     let addLifeUpAction = SKAction.runBlock(spawnLifeUp)
     let sequence = SKAction.sequence([waitInterval, addLifeUpAction])
     let spawnLifeUpForever = SKAction.repeatActionForever(sequence)
     runAction(spawnLifeUpForever)
     
+    // Initial stage label
+    
+    var stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    stageLabel.text = "Stage 1"
+    stageLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
+    stageLabel.fontSize = 52
+    stageLabel.zPosition = 5
+    stageLabel.alpha = 0.0
+    addChild(stageLabel)
+    
+    let scaleUp = SKAction.fadeInWithDuration(0.5)
+    let scaleDown = SKAction.fadeOutWithDuration(0.3)
+    let remove = SKAction.removeFromParent()
+    stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
+    
   }
   
   // Stages at 100s each
-  // 10
+  // 10?
   
   func onTimeUpdate(totalGameTime: NSTimeInterval) {
     
     // Check spawn rate for Firebases
-    if timeSinceEnemyAdded > spawnRate {
+    // If spawnRate is less than 0 skip the spawn (this is used for presenting/transitioning between stages)
+    if timeSinceEnemyAdded > spawnRate && spawnRate > 0.0 {
       spawnFirebase()
       timeSinceEnemyAdded = 0
     }
@@ -134,72 +146,27 @@ class SinglePlayerScene: CloudScene {
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
         spawnRate = currentSequence.spawnRate
       } else {
-        // Incremenet the offset when the stage changes
+        // Increment the offset when the stage changes
         offset += stages[currentStage]!.totalTime
-        println("offset is \(offset)")
         currentStage++
+        
+        var stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+        stageLabel.text = "Stage \(currentStage)"
+        stageLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        stageLabel.fontSize = 52
+        stageLabel.zPosition = 5
+        stageLabel.alpha = 0.0
+        addChild(stageLabel)
+        
+        let scaleUp = SKAction.fadeInWithDuration(0.5)
+        let scaleDown = SKAction.fadeOutWithDuration(0.3)
+        let remove = SKAction.removeFromParent()
+        stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
       }
     } else {
       // Game over?
       println("it boke")
     }
-    
-    
-    //    if totalGameTime < 10 {
-    //      spawnRate = 2.0
-    //    } else if totalGameTime > 10 && totalGameTime < 20 {
-    //      spawnRate = 1.5
-    //    } else if totalGameTime > 20 && totalGameTime < 30 {
-    //      spawnRate = 0.75
-    //    } else if totalGameTime > 30 && totalGameTime < 40 {
-    //      spawnRate = 0.6
-    //    } else if totalGameTime > 40 && totalGameTime < 50 {
-    //      spawnRate = 0.75
-    //    } else if totalGameTime > 50 && totalGameTime < 60 {
-    //      spawnRate = 0.6
-    //    } else if totalGameTime > 60 && totalGameTime < 70 {
-    //      spawnRate = 0.7
-    //    } else if totalGameTime > 70 && totalGameTime < 80 {
-    //      spawnRate = 1.0
-    //    } else if totalGameTime > 80 && totalGameTime < 120 {
-    //      spawnRate = 0.9
-    //    } else if totalGameTime > 120 && totalGameTime < 140 {
-    //      spawnRate = 0.85
-    //    } else if totalGameTime > 140 && totalGameTime < 160 {
-    //      spawnRate = 0.75
-    //    } else if totalGameTime > 160 && totalGameTime < 200 {
-    //      spawnRate = 0.9
-    //    } else if totalGameTime > 200 && totalGameTime < 240 {
-    //      spawnRate = 0.8
-    //    } else if totalGameTime > 240 && totalGameTime < 260 {
-    //      spawnRate = 1.0
-    //    } else if totalGameTime > 240 && totalGameTime < 260 {
-    //      spawnRate = 0.9
-    //    } else if totalGameTime > 260 && totalGameTime < 300 {
-    //      spawnRate = 0.85
-    //    } else if totalGameTime > 300 && totalGameTime < 360 {
-    //      spawnRate = 0.75
-    //    } else if totalGameTime > 360 && totalGameTime < 420 {
-    //      spawnRate = 0.65
-    //    } else if totalGameTime > 420 {
-    //      spawnRate = 0.4 // kill-switch
-    //    }
-    
-    // Check if the the totalTime is a multiple of the default interval
-    // If so, increase the spawn rate
-    //    var flooredTime = floor(totalGameTime)
-    //    var mod = flooredTime % self.increaseInterval
-    //
-    //    if mod == 0 {
-    //
-    //      var multiple = floor(totalGameTime / increaseInterval)
-    //      var decrement = 0.1 * multiple
-    //
-    //      if multiple >= 0 && addEnemyTimeInterval >= 0 {
-    //        addEnemyTimeInterval = 1.0 - decrement
-    //      }
-    //
-    //    }
     
   }
   
@@ -268,7 +235,7 @@ class SinglePlayerScene: CloudScene {
   }
   
   required init?(coder aDecoder: NSCoder) {
-    fatalError("lol not implemented")
+    fatalError("ಠ︵ಠ凸")
   }
   
 }

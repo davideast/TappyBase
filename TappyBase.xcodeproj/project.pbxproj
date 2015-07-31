@@ -57,6 +57,9 @@
 		BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */; };
 		BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3031B6A5B9900196F8E /* PauseButton.swift */; };
 		BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3061B6B51FC00196F8E /* Stage.swift */; };
+		BBF4D3091B6BF57700196F8E /* stages.json in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D3081B6BF57700196F8E /* stages.json */; };
+		BBF4D30B1B6BF72200196F8E /* StageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30A1B6BF72200196F8E /* StageCreator.swift */; };
+		BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,9 @@
 		BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableBoltSprite.swift; sourceTree = "<group>"; };
 		BBF4D3031B6A5B9900196F8E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		BBF4D3061B6B51FC00196F8E /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		BBF4D3081B6BF57700196F8E /* stages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stages.json; sourceTree = "<group>"; };
+		BBF4D30A1B6BF72200196F8E /* StageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCreator.swift; sourceTree = "<group>"; };
+		BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseStages.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -214,6 +220,7 @@
 				BBBD124A1B568BDF0011CC6D /* TappyBase-Bridging-Header.h */,
 				BBBD124F1B568C530011CC6D /* Helpers.swift */,
 				BBBD12581B56C11A0011CC6D /* PressStart2P.ttf */,
+				BBF4D3081B6BF57700196F8E /* stages.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -312,8 +319,9 @@
 				BBBF0CA31B657DDA008EA651 /* TappyBaseColors.swift */,
 				BBBF0CA51B657DFA008EA651 /* TappyBaseImages.swift */,
 				BBBF0CA71B657E3C008EA651 /* TappyBaseSounds.swift */,
-				BBBF0CA91B657E93008EA651 /* SKTexture.swift */,
+				BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */,
 				BBBF0CC41B66AC00008EA651 /* TappBaseFonts.swift */,
+				BBBF0CA91B657E93008EA651 /* SKTexture.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -384,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				BBF4D3061B6B51FC00196F8E /* Stage.swift */,
+				BBF4D30A1B6BF72200196F8E /* StageCreator.swift */,
 			);
 			name = Stages;
 			sourceTree = "<group>";
@@ -476,6 +485,7 @@
 				BBBD12591B56C11A0011CC6D /* PressStart2P.ttf in Resources */,
 				BBBD12291B567D5D0011CC6D /* LaunchScreen.xib in Resources */,
 				BBBD125B1B56D13D0011CC6D /* missed-base.wav in Resources */,
+				BBF4D3091B6BF57700196F8E /* stages.json in Resources */,
 				BBA1383C1B5B4007005FAEEC /* 8-bit-music.mp3 in Resources */,
 				BBBD12261B567D5D0011CC6D /* Images.xcassets in Resources */,
 				BBBD12461B5689E80011CC6D /* background-play.wav in Resources */,
@@ -551,6 +561,7 @@
 				BBBD121F1B567D5D0011CC6D /* TitleGameScene.swift in Sources */,
 				BBBF0CC11B66AB5A008EA651 /* FirebaseCloudScene.swift in Sources */,
 				BBBF0CAF1B668901008EA651 /* TappableNode.swift in Sources */,
+				BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */,
 				BBBD12211B567D5D0011CC6D /* GameViewController.swift in Sources */,
 				BBBF0CC51B66AC00008EA651 /* TappBaseFonts.swift in Sources */,
 				BBBD12571B569AF90011CC6D /* MainGameScene.swift in Sources */,
@@ -567,6 +578,7 @@
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,
+				BBF4D30B1B6BF72200196F8E /* StageCreator.swift in Sources */,
 				BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */,
 				BBBF0CAC1B667DB3008EA651 /* SinglePlayerScene.swift in Sources */,
 			);

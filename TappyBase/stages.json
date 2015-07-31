@@ -1,0 +1,17 @@
+{
+  "1": {
+    "number": "1",
+    "timeSequences": {
+      "1": {
+        "start": 0.0,
+        "end": 10.0,
+        "spawnRate": 1.5
+      },
+      "2": {
+        "start": 10.0,
+        "end": 20.0,
+        "spawnRate": 1.5
+      }
+    }
+  }
+}
