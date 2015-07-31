@@ -24,14 +24,23 @@ class UpdateIntervalScene: SKScene {
   override func update(currentTime: NSTimeInterval) {
     super.update(currentTime)
     
-    if (lastUpdateTimeInterval > NSTimeInterval(0)) {
-      timeSinceEnemyAdded += currentTime - lastUpdateTimeInterval
-      totalGameTime += currentTime - lastUpdateTimeInterval
+    if !paused {
+      
+      if lastUpdateTimeInterval > 0.0 {
+        timeSinceEnemyAdded += currentTime - lastUpdateTimeInterval
+        totalGameTime += currentTime - lastUpdateTimeInterval
+      }
+      
+      lastUpdateTimeInterval = currentTime
+      
+      onIntervalUpdate?(totalGameTime: totalGameTime)
+      
+    } else if paused {
+      
+      // compensate for paused time
+      // collect total time paused and use that to offset the currentTime
+      
     }
-    
-    lastUpdateTimeInterval = currentTime
-    
-    onIntervalUpdate?(totalGameTime: totalGameTime)
     
   }
   

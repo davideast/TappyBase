@@ -34,4 +34,9 @@ struct TappyBaseImages {
   static func cloudImage() -> String {
     return "cloud"
   }
+  
+  static func pauseButton() -> String {
+    return "8bit-pause"
+  }
+  
 }

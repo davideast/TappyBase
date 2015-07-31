@@ -13,6 +13,7 @@ import AVFoundation
 class CloudScene: TappableScene {
   
   var backgroundMusicPlayer: AVAudioPlayer!
+  var bgNode: SKSpriteNode!
   
   init(size: CGSize, backgroundMusic: String) {
     super.init(size: size)
@@ -30,7 +31,8 @@ class CloudScene: TappableScene {
     let topColor = TappyBaseColors.skyBlueCIColor()
     let bottomColor = TappyBaseColors.lightBlueCIColor()
     let bgTexture = SKTexture(size: size, topColor: topColor, bottomColor: bottomColor)
-    let bgNode = SKSpriteNode(texture: bgTexture)
+    bgNode = SKSpriteNode(texture: bgTexture)
+    
     bgNode.position = CGPointMake(size.width / 2, size.height / 2)
     bgNode.zPosition = -1
     addChild(bgNode)

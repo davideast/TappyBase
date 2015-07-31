@@ -55,6 +55,8 @@
 		BBF4D2FF1B6A500E00196F8E /* lifeup-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D2FD1B6A500E00196F8E /* lifeup-2.wav */; };
 		BBF4D3001B6A500E00196F8E /* lifeup.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D2FE1B6A500E00196F8E /* lifeup.wav */; };
 		BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */; };
+		BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3031B6A5B9900196F8E /* PauseButton.swift */; };
+		BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3061B6B51FC00196F8E /* Stage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		BBF4D2FD1B6A500E00196F8E /* lifeup-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "lifeup-2.wav"; sourceTree = "<group>"; };
 		BBF4D2FE1B6A500E00196F8E /* lifeup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lifeup.wav; sourceTree = "<group>"; };
 		BBF4D3011B6A505600196F8E /* TappableBoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableBoltSprite.swift; sourceTree = "<group>"; };
+		BBF4D3031B6A5B9900196F8E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		BBF4D3061B6B51FC00196F8E /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -318,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				BBBF0CB41B669664008EA651 /* GradientNode.swift */,
+				BBF4D3031B6A5B9900196F8E /* PauseButton.swift */,
 			);
 			name = "Base UI";
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 		BBBF0CB91B66AA12008EA651 /* Single Player Scene */ = {
 			isa = PBXGroup;
 			children = (
+				BBF4D3051B6B50A200196F8E /* Stages */,
 				BBBF0CBC1B66AA65008EA651 /* UI */,
 				BBBF0CBB1B66AA5F008EA651 /* Sprites */,
 				BBBF0CAB1B667DB3008EA651 /* SinglePlayerScene.swift */,
@@ -372,6 +378,14 @@
 			children = (
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		BBF4D3051B6B50A200196F8E /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				BBF4D3061B6B51FC00196F8E /* Stage.swift */,
+			);
+			name = Stages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,6 +546,7 @@
 				BBBF0CB11B668F30008EA651 /* CloudScene.swift in Sources */,
 				BBBF0CC31B66AB8D008EA651 /* PlayButton.swift in Sources */,
 				BBBF0CB51B669664008EA651 /* GradientNode.swift in Sources */,
+				BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */,
 				BBBD12531B568F920011CC6D /* FirebaseSpriteNode.swift in Sources */,
 				BBBD121F1B567D5D0011CC6D /* TitleGameScene.swift in Sources */,
 				BBBF0CC11B66AB5A008EA651 /* FirebaseCloudScene.swift in Sources */,
@@ -548,6 +563,7 @@
 				BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */,
 				BBBF0CAA1B657E93008EA651 /* SKTexture.swift in Sources */,
 				BBBF0CB71B669F39008EA651 /* TappableScene.swift in Sources */,
+				BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */,
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,
