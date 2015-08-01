@@ -41,10 +41,12 @@ struct TimeSequence {
   let start: NSTimeInterval
   let end: NSTimeInterval
   let spawnRate: NSTimeInterval
+  let spawnAmount: Int
   
-  init(start: NSTimeInterval, end: NSTimeInterval, spawnRate: NSTimeInterval) {
+  init(start: NSTimeInterval, end: NSTimeInterval, spawnRate: NSTimeInterval, spawnAmount: Int = 1) {
     self.start = start
     self.end = end
     self.spawnRate = spawnRate
+    self.spawnAmount = spawnAmount
   }
 }

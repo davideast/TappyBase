@@ -13,22 +13,6 @@ import SpriteKit
 
 class SinglePlayerScene: CloudScene {
   
-  // Requirements for Single Player
-  // - Increasingly spawn FirebaseSprites
-  // - Start with 3 lives
-  // - Every 30s-60s spawn a 1up life
-  // - Record stats for game summary
-  // - On lose switch to game over scene w/ summary
-  
-  // Tappable nodes
-  // - FirebaseSprite
-  // - LifeUpSprite
-  // - PauseButton
-  
-  // Stats Recording
-  // - FirebaseSprites Tapped
-  // - Length of time?
-  
   let increaseInterval = 20.0
   var addEnemyTimeInterval = NSTimeInterval(2.0) // 2.0 per second
   var player = Player(lives: 3, firebaseSpritesTapped: 0)
@@ -37,6 +21,7 @@ class SinglePlayerScene: CloudScene {
   let stages: [Int: Stage]
   var currentStage = 1
   var offset = 0.0
+  var spawnAmount = 1
   
   // HUD
   let smallSprite = BoltSprite()
@@ -122,15 +107,13 @@ class SinglePlayerScene: CloudScene {
     
   }
   
-  // Stages at 100s each
-  // 10?
-  
   func onTimeUpdate(totalGameTime: NSTimeInterval) {
     
     // Check spawn rate for Firebases
     // If spawnRate is less than 0 skip the spawn (this is used for presenting/transitioning between stages)
     if timeSinceEnemyAdded > spawnRate && spawnRate > 0.0 {
-      spawnFirebase()
+      println(spawnAmount)
+      spawnFirebase(spawnAmount)
       timeSinceEnemyAdded = 0
     }
     
@@ -145,6 +128,7 @@ class SinglePlayerScene: CloudScene {
       // Get the current sequence in the stage, if stage is over then move to the next stage
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
         spawnRate = currentSequence.spawnRate
+        spawnAmount = currentSequence.spawnAmount
       } else {
         // Increment the offset when the stage changes
         offset += stages[currentStage]!.totalTime
@@ -162,6 +146,17 @@ class SinglePlayerScene: CloudScene {
         let scaleDown = SKAction.fadeOutWithDuration(0.3)
         let remove = SKAction.removeFromParent()
         stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
+        
+        var color = TappyBaseColors.orangeSkyColor()
+        
+        if currentStage < 3 {
+          color = TappyBaseColors.orangeSkyColor()
+        } else if currentStage >= 3 {
+          color = TappyBaseColors.nightSkyBlueColor()
+        }
+        
+        let action = SKAction.colorizeWithColor(color, colorBlendFactor: CGFloat(currentStage) * 0.15, duration: 2.0)
+        bgNode.runAction(action)
       }
     } else {
       // Game over?
@@ -170,14 +165,14 @@ class SinglePlayerScene: CloudScene {
     
   }
   
-  func spawnFirebase() {
+  func spawnFirebase(var amount: Int) {
     
     // Create a Sprite that increments taps when tapped and
     // removes a life when FirebaseSprite moves across the screen w/out a tap
     let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
       self.firebasesTapped++
       }, onDone: {
-        //self.lives--
+        self.lives--
     })
     
     moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
@@ -185,6 +180,13 @@ class SinglePlayerScene: CloudScene {
     })
     
     addChild(firebaseSprite)
+
+    amount--
+    
+    if amount > 0 {
+      spawnFirebase(amount)
+    }
+    
   }
   
   func spawnLifeUp() {
@@ -231,7 +233,7 @@ class SinglePlayerScene: CloudScene {
     addChild(smallSprite)
     addChild(livesLeftNode)
     addChild(pauseButton)
-    addChild(spawnRateLabel)
+    // addChild(spawnRateLabel)
   }
   
   required init?(coder aDecoder: NSCoder) {

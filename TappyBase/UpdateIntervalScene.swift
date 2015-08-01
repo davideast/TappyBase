@@ -15,9 +15,9 @@ protocol UpdateIntervalProtocol {
 
 class UpdateIntervalScene: SKScene {
   
-  var lastUpdateTimeInterval = NSTimeInterval(0)
-  var totalGameTime = NSTimeInterval(0)
-  var timeSinceEnemyAdded = NSTimeInterval(0)
+  var lastUpdateTimeInterval = 0.0
+  var totalGameTime = 0.0
+  var timeSinceEnemyAdded = 0.0
   
   var onIntervalUpdate: ((totalGameTime: NSTimeInterval) -> Void)?
   
