@@ -58,7 +58,6 @@
 		BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3031B6A5B9900196F8E /* PauseButton.swift */; };
 		BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3061B6B51FC00196F8E /* Stage.swift */; };
 		BBF4D3091B6BF57700196F8E /* stages.json in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D3081B6BF57700196F8E /* stages.json */; };
-		BBF4D30B1B6BF72200196F8E /* StageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30A1B6BF72200196F8E /* StageCreator.swift */; };
 		BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,7 +128,6 @@
 		BBF4D3031B6A5B9900196F8E /* PauseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		BBF4D3061B6B51FC00196F8E /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BBF4D3081B6BF57700196F8E /* stages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stages.json; sourceTree = "<group>"; };
-		BBF4D30A1B6BF72200196F8E /* StageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCreator.swift; sourceTree = "<group>"; };
 		BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseStages.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,7 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				BBF4D3061B6B51FC00196F8E /* Stage.swift */,
-				BBF4D30A1B6BF72200196F8E /* StageCreator.swift */,
 			);
 			name = Stages;
 			sourceTree = "<group>";
@@ -578,7 +575,6 @@
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,
-				BBF4D30B1B6BF72200196F8E /* StageCreator.swift in Sources */,
 				BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */,
 				BBBF0CAC1B667DB3008EA651 /* SinglePlayerScene.swift in Sources */,
 			);

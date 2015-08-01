@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import CoreGraphics
+import SpriteKit
+
+struct StageColorization {
+  let color: SKColor
+  let blendFactor: CGFloat
+  static let Factor: CGFloat = 0.15
+}
 
 struct Stage {
   let number: Int
   let timeSequences: [TimeSequence]
+  let cloudSpeed: CGFloat
+  let stageColor: StageColorization?
   
   var totalTime: NSTimeInterval {
     get {
@@ -18,9 +28,11 @@ struct Stage {
     }
   }
   
-  init(number: Int, timeSequences: [TimeSequence]) {
+  init(number: Int, timeSequences: [TimeSequence], cloudSpeed: CGFloat, stageColor: StageColorization?) {
     self.number = number
     self.timeSequences = timeSequences
+    self.cloudSpeed = cloudSpeed
+    self.stageColor = stageColor
   }
   
   func sequenceContainingInterval(interval: NSTimeInterval) -> TimeSequence? {

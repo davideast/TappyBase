@@ -112,7 +112,6 @@ class SinglePlayerScene: CloudScene {
     // Check spawn rate for Firebases
     // If spawnRate is less than 0 skip the spawn (this is used for presenting/transitioning between stages)
     if timeSinceEnemyAdded > spawnRate && spawnRate > 0.0 {
-      println(spawnAmount)
       spawnFirebase(spawnAmount)
       timeSinceEnemyAdded = 0
     }
@@ -147,16 +146,17 @@ class SinglePlayerScene: CloudScene {
         let remove = SKAction.removeFromParent()
         stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
         
-        var color = TappyBaseColors.orangeSkyColor()
-        
-        if currentStage < 3 {
-          color = TappyBaseColors.orangeSkyColor()
-        } else if currentStage >= 3 {
-          color = TappyBaseColors.nightSkyBlueColor()
+        if let upcomingStage = stages[currentStage] {
+          
+          // Check for background colorization
+          if let stageColor = upcomingStage.stageColor {
+            bgNode.runAction(SKAction.colorizeWithColor(stageColor.color, colorBlendFactor: stageColor.blendFactor, duration: 2.0))
+          }
+          
+          cloudSpeed = upcomingStage.cloudSpeed
+          
         }
         
-        let action = SKAction.colorizeWithColor(color, colorBlendFactor: CGFloat(currentStage) * 0.15, duration: 2.0)
-        bgNode.runAction(action)
       }
     } else {
       // Game over?
@@ -172,7 +172,7 @@ class SinglePlayerScene: CloudScene {
     let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
       self.firebasesTapped++
       }, onDone: {
-        self.lives--
+        //self.lives--
     })
     
     moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
