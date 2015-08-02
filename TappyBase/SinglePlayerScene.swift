@@ -122,7 +122,7 @@ class SinglePlayerScene: CloudScene {
       // To find the correct sequence we need to keep track of the sum of each
       // stage's time length. This sum can be used as an offset to make sure
       // we're operating as if each stage starts from 0
-      var offsetTime = totalGameTime - offset
+      let offsetTime = totalGameTime - offset
       
       // Get the current sequence in the stage, if stage is over then move to the next stage
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
@@ -172,7 +172,7 @@ class SinglePlayerScene: CloudScene {
     let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
       self.firebasesTapped++
       }, onDone: {
-        //self.lives--
+        self.lives--
     })
     
     moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
