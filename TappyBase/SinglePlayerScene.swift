@@ -24,6 +24,7 @@ class SinglePlayerScene: CloudScene {
   var spawnAmount = 1
   var lastPause: NSTimeInterval = 0.0
   var lastResume: NSTimeInterval = 0.0
+  var gameOverTime: NSTimeInterval = 0.0
   
   // HUD
   let smallSprite = BoltSprite()
@@ -113,7 +114,7 @@ class SinglePlayerScene: CloudScene {
   
   func onTimeUpdate(totalGameTime: NSTimeInterval) {
     
-    if paused == true {
+    if paused {
       return
     }
     
@@ -134,8 +135,6 @@ class SinglePlayerScene: CloudScene {
       // paused and subtract that from the total game time and THEN subtract
       // the stage offset.
       let offsetTime = (totalGameTime - pausedOffset) - offset
-      
-      println("totalOffsetTime: \(offsetTime)")
       
       // Get the current sequence in the stage, if stage is over then move to the next stage
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
@@ -185,7 +184,7 @@ class SinglePlayerScene: CloudScene {
     let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
       self.firebasesTapped++
       }, onDone: {
-        // self.lives--
+        self.lives--
     })
     
     moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
@@ -213,8 +212,9 @@ class SinglePlayerScene: CloudScene {
   }
   
   func gameOver() {
+    gameOverTime = totalGameTime
     backgroundMusicPlayer.stop()
-    view?.presentScene(GameOverScene(size: self.view!.bounds.size, hits: player.firebaseSpritesTapped))
+    view?.presentScene(GameOverScene(size: self.view!.bounds.size, taps: player.firebaseSpritesTapped, stage: currentStage, duration: gameOverTime))
   }
   
   func displayHUD() {

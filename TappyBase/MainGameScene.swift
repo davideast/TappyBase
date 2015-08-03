@@ -227,7 +227,7 @@ class MainGameScene: SKScene {
         self.playerRef.removeValue()
         self.playerSpriteRef.removeValue()
         self.backgroundMusicPlayer.stop()
-        self.view?.presentScene(GameOverScene(size: self.view!.bounds.size, hits: self.hits))
+        self.view?.presentScene(GameOverScene(size: self.view!.bounds.size, taps: self.hits, stage: 0, duration: 0.0))
       }
     })
     

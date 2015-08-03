@@ -12,3 +12,5 @@ import SpriteKit
 protocol TappableNode {
   func tappedAction(scene: SKScene)
 }
+
+typealias VoidCallback = () -> Void

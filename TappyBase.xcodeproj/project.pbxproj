@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8E00F9DFC9B85D470E615D27 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3629360D74BA2925559B4A /* libPods.a */; };
+		BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */; };
+		BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123D1B6FB3A700E95D40 /* GameSummary.swift */; };
+		BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */; };
 		BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9247751B58781C00138AAD /* FirebasePlayer.swift */; };
 		BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA138371B5B3D63005FAEEC /* GameOverScene.swift */; };
 		BBA1383A1B5B3F4A005FAEEC /* game-over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBA138391B5B3F4A005FAEEC /* game-over.mp3 */; };
@@ -73,6 +76,9 @@
 
 /* Begin PBXFileReference section */
 		47454BC61F3F63F7B5952D28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLabelNode.swift; sourceTree = "<group>"; };
+		BB30123D1B6FB3A700E95D40 /* GameSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
+		BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableMainLabel.swift; sourceTree = "<group>"; };
 		BB9247751B58781C00138AAD /* FirebasePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebasePlayer.swift; sourceTree = "<group>"; };
 		BBA138371B5B3D63005FAEEC /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		BBA138391B5B3F4A005FAEEC /* game-over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-over.mp3"; sourceTree = "<group>"; };
@@ -169,6 +175,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB30123F1B6FB6F000E95D40 /* Game Over Scene */ = {
+			isa = PBXGroup;
+			children = (
+				BB3012401B6FB70900E95D40 /* UI */,
+				BBA138371B5B3D63005FAEEC /* GameOverScene.swift */,
+			);
+			name = "Game Over Scene";
+			sourceTree = "<group>";
+		};
+		BB3012401B6FB70900E95D40 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		BBBD120C1B567D5D0011CC6D = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +222,7 @@
 				BBBF0CB91B66AA12008EA651 /* Single Player Scene */,
 				BBBD124E1B568C170011CC6D /* Controllers */,
 				BBBD12511B568F6D0011CC6D /* Models */,
+				BB30123F1B6FB6F000E95D40 /* Game Over Scene */,
 				BBBD124D1B568BFA0011CC6D /* Layouts */,
 				BBBD123E1B5689310011CC6D /* Sounds */,
 				BBBF0CA21B657DB6008EA651 /* Utils */,
@@ -261,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				BBBD12561B569AF90011CC6D /* MainGameScene.swift */,
-				BBA138371B5B3D63005FAEEC /* GameOverScene.swift */,
 				BBBF0CB01B668F30008EA651 /* CloudScene.swift */,
 				BBBF0CB61B669F39008EA651 /* TappableScene.swift */,
 				BBBF0CC01B66AB5A008EA651 /* FirebaseCloudScene.swift */,
@@ -291,11 +313,13 @@
 		BBBD12511B568F6D0011CC6D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BBF4D3061B6B51FC00196F8E /* Stage.swift */,
 				BBBD12521B568F920011CC6D /* FirebaseSpriteNode.swift */,
 				BBBD12541B568FD10011CC6D /* FirebaseNode.swift */,
 				BB9247751B58781C00138AAD /* FirebasePlayer.swift */,
 				BBBF0CCC1B66BF1B008EA651 /* Player.swift */,
 				BBBF0CD21B67A1A2008EA651 /* Game.swift */,
+				BB30123D1B6FB3A700E95D40 /* GameSummary.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,6 +353,8 @@
 			children = (
 				BBBF0CB41B669664008EA651 /* GradientNode.swift */,
 				BBF4D3031B6A5B9900196F8E /* PauseButton.swift */,
+				BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */,
+				BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */,
 			);
 			name = "Base UI";
 			sourceTree = "<group>";
@@ -336,7 +362,6 @@
 		BBBF0CB91B66AA12008EA651 /* Single Player Scene */ = {
 			isa = PBXGroup;
 			children = (
-				BBF4D3051B6B50A200196F8E /* Stages */,
 				BBBF0CBC1B66AA65008EA651 /* UI */,
 				BBBF0CBB1B66AA5F008EA651 /* Sprites */,
 				BBBF0CAB1B667DB3008EA651 /* SinglePlayerScene.swift */,
@@ -384,14 +409,6 @@
 			children = (
 			);
 			name = Sprites;
-			sourceTree = "<group>";
-		};
-		BBF4D3051B6B50A200196F8E /* Stages */ = {
-			isa = PBXGroup;
-			children = (
-				BBF4D3061B6B51FC00196F8E /* Stage.swift */,
-			);
-			name = Stages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,14 +566,17 @@
 				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,
 				BBBF0CCB1B66BC28008EA651 /* UpdateIntervalScene.swift in Sources */,
+				BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */,
 				BBBD12551B568FD10011CC6D /* FirebaseNode.swift in Sources */,
 				BBBF0CB11B668F30008EA651 /* CloudScene.swift in Sources */,
 				BBBF0CC31B66AB8D008EA651 /* PlayButton.swift in Sources */,
 				BBBF0CB51B669664008EA651 /* GradientNode.swift in Sources */,
+				BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */,
 				BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */,
 				BBBD12531B568F920011CC6D /* FirebaseSpriteNode.swift in Sources */,
 				BBBD121F1B567D5D0011CC6D /* TitleGameScene.swift in Sources */,
 				BBBF0CC11B66AB5A008EA651 /* FirebaseCloudScene.swift in Sources */,
+				BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */,
 				BBBF0CAF1B668901008EA651 /* TappableNode.swift in Sources */,
 				BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */,
 				BBBD12211B567D5D0011CC6D /* GameViewController.swift in Sources */,

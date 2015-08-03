@@ -20,9 +20,9 @@ class CloudScene: TappableScene {
   private var lastCloudUpdate: NSTimeInterval = 0.0
   private var deltaTime : CGFloat = 0.01666
   
-  init(size: CGSize, backgroundMusic: String) {
+  init(size: CGSize, backgroundMusic: String, numLoops: Int = -1) {
     super.init(size: size)
-    backgroundMusicPlayer = playBackgroundMusic(backgroundMusic)
+    backgroundMusicPlayer = playBackgroundMusic(backgroundMusic, numLoops: numLoops)
   }
   
   required init?(coder aDecoder: NSCoder) {

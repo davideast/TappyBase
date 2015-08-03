@@ -10,15 +10,37 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
-class GameOverScene: SKScene {
+class GameOverScene: CloudScene {
   
-  var backgroundMusicPlayer: AVAudioPlayer!
-  var hitsLabel = SKLabelNode(fontNamed: "PressStart2P")
-  var replayButton = SKLabelNode(fontNamed: "PressStart2P")
+  var tapsLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+  var replayButton = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
   
-  init(size: CGSize, hits: Int) {
-    super.init(size: size)
-    hitsLabel.text = hits.description
+  private var summary: GameSummary!
+  
+  var taps: String {
+    get {
+      return summary.taps.metric.description
+    }
+  }
+  
+  var stage: String {
+    get {
+      return summary.taps.metric.description
+    }
+  }
+  
+  var duration: String {
+    get {
+      return summary.duration.metric.description
+    }
+  }
+  
+  init(size: CGSize, taps: Int, stage: Int, duration: NSTimeInterval) {
+    super.init(size: size, backgroundMusic: "game-over.mp3", numLoops: 0)
+    
+    summary = GameSummary(taps: taps, stage: stage, duration: duration)
+    
+    tapsLabel.text = self.taps
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -29,9 +51,7 @@ class GameOverScene: SKScene {
     super.didMoveToView(view)
     backgroundColor = SKColor.whiteColor()
     
-    backgroundMusicPlayer = playBackgroundMusic("game-over.mp3", numLoops: 0)
-    
-    addHitsLabel()
+    addTapsLabel()
     addReplayLabel()
   }
   
@@ -46,12 +66,12 @@ class GameOverScene: SKScene {
     
     let node = nodeAtPoint(touchLocation)
     if node.name == "replay-button" {
-      backgroundMusicPlayer.stop()
-      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-      let mainGameScene = SinglePlayerScene(size: self.size)
-      self.view?.presentScene(mainGameScene, transition: reveal)
+  self.backgroundMusicPlayer.stop()
+  let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+  let singlePlayScene = SinglePlayerScene(size: self.size)
+  self.view?.presentScene(singlePlayScene, transition: reveal)
     }
-    
+  
   }
   
   func addReplayLabel() {
@@ -65,14 +85,14 @@ class GameOverScene: SKScene {
     addChild(replayButton)
   }
   
-  func addHitsLabel() {
-    hitsLabel.fontSize = 48
-    hitsLabel.fontColor = TappyBaseColors.darkGrayColor()
-    hitsLabel.name = "hits-label"
-    hitsLabel.position = CGPoint(x: size.width / 2, y: (size.height / 2) + 100)
-    hitsLabel.zPosition = CGFloat(1)
-    hitsLabel.userInteractionEnabled = false
-    addChild(hitsLabel)
+  func addTapsLabel() {
+    tapsLabel.fontSize = 48
+    tapsLabel.fontColor = SKColor.whiteColor()
+    tapsLabel.name = "hits-label"
+    tapsLabel.position = CGPoint(x: size.width / 2, y: (size.height / 2) + 100)
+    tapsLabel.zPosition = CGFloat(1)
+    tapsLabel.userInteractionEnabled = false
+    addChild(tapsLabel)
   }
   
 }
