@@ -22,6 +22,8 @@ class SinglePlayerScene: CloudScene {
   var currentStage = 1
   var offset = 0.0
   var spawnAmount = 1
+  var lastPause: NSTimeInterval = 0.0
+  var lastResume: NSTimeInterval = 0.0
   
   // HUD
   let smallSprite = BoltSprite()
@@ -62,6 +64,8 @@ class SinglePlayerScene: CloudScene {
       addEnemyTimeInterval = newValue
     }
   }
+  
+  var pausedOffset: NSTimeInterval = 0.0
   
   init(size: CGSize) {
     
@@ -109,6 +113,10 @@ class SinglePlayerScene: CloudScene {
   
   func onTimeUpdate(totalGameTime: NSTimeInterval) {
     
+    if paused == true {
+      return
+    }
+    
     // Check spawn rate for Firebases
     // If spawnRate is less than 0 skip the spawn (this is used for presenting/transitioning between stages)
     if timeSinceEnemyAdded > spawnRate && spawnRate > 0.0 {
@@ -121,8 +129,13 @@ class SinglePlayerScene: CloudScene {
       // Each stage's time sequences are independent of each other
       // To find the correct sequence we need to keep track of the sum of each
       // stage's time length. This sum can be used as an offset to make sure
-      // we're operating as if each stage starts from 0
-      let offsetTime = totalGameTime - offset
+      // we're operating as if each stage starts from 0. Since the user can
+      // also pause the game we need to keep track of how much time has been
+      // paused and subtract that from the total game time and THEN subtract
+      // the stage offset.
+      let offsetTime = (totalGameTime - pausedOffset) - offset
+      
+      println("totalOffsetTime: \(offsetTime)")
       
       // Get the current sequence in the stage, if stage is over then move to the next stage
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
@@ -172,7 +185,7 @@ class SinglePlayerScene: CloudScene {
     let firebaseSprite = TappableFirebaseSprite(onTapped: { _ in
       self.firebasesTapped++
       }, onDone: {
-        self.lives--
+        // self.lives--
     })
     
     moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
@@ -217,13 +230,15 @@ class SinglePlayerScene: CloudScene {
     pauseButton.zPosition = 3
     
     pauseButton.onTapped = {
-      self.paused = !self.paused
+      let isPaused = !self.paused
       
-      if self.paused {
+      if isPaused {
+        self.pauseGame()
         self.maskNode.alpha = 0.3
         self.maskNode.zPosition = 2
         self.addChild(self.maskNode)
       } else {
+        self.unpauseGame()
         self.maskNode.removeFromParent()
       }
     }
@@ -234,6 +249,17 @@ class SinglePlayerScene: CloudScene {
     addChild(livesLeftNode)
     addChild(pauseButton)
     // addChild(spawnRateLabel)
+  }
+  
+  func pauseGame() {
+    lastPause = totalGameTime
+    paused = true
+  }
+  
+  func unpauseGame() {
+    lastResume = totalGameTime
+    pausedOffset += lastResume - lastPause
+    paused = false
   }
   
   required init?(coder aDecoder: NSCoder) {
