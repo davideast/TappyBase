@@ -69,6 +69,8 @@ class GameOverScene: CloudScene {
     let tapsLabel = createMetricLabel("Taps", pairingHeader: gameOverHeaderLabel, order: 2)
     let tapsValueLabel = createMetricValueLabel(taps, pairingHeader: gameOverHeaderLabel, pairingLabel: tapsLabel)
     
+    let highScoreTapsLabel = createHighScoreLabel(tapsValueLabel)
+    
     let durationLabel = createMetricLabel("Time", pairingHeader: gameOverHeaderLabel, order: 3)
     let durationValueLabel = createMetricValueLabel(duration, pairingHeader: gameOverHeaderLabel, pairingLabel: durationLabel)
     
@@ -76,6 +78,7 @@ class GameOverScene: CloudScene {
     
     addChild(tapsLabel)
     addChild(tapsValueLabel)
+    addChild(highScoreTapsLabel)
     
     addChild(durationLabel)
     addChild(durationValueLabel)
@@ -165,6 +168,17 @@ class GameOverScene: CloudScene {
     label.position = CGPoint(x: pairingHeader.position.x + 150.0 - (label.frame.width), y: pairingLabel.position.y)
     label.zPosition = 2.0
     label.userInteractionEnabled = false
+    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+    return label
+  }
+  
+  func createHighScoreLabel(pairingLabel: SKLabelNode) -> SKLabelNode {
+    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    label.fontSize = 10
+    label.text = "High Score!"
+    label.fontColor = TappyBaseColors.yellowColor()
+    label.position = CGPoint(x: pairingLabel.position.x + 40, y: pairingLabel.position.y)
+    label.zPosition = 2.0
     label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
     return label
   }

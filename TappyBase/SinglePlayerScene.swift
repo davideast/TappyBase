@@ -145,6 +145,7 @@ class SinglePlayerScene: CloudScene {
         offset += stages[currentStage]!.totalTime
         currentStage++
         
+        // TODO: Refactor to subclassed node
         var stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
         stageLabel.text = "Stage \(currentStage)"
         stageLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -158,6 +159,8 @@ class SinglePlayerScene: CloudScene {
         let remove = SKAction.removeFromParent()
         stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
         
+        // TODO: refactor stage property to a computed on the Scene
+        // (example): if let upcomingStage = stage { }
         if let upcomingStage = stages[currentStage] {
           
           // Check for background colorization
