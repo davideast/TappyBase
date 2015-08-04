@@ -78,6 +78,19 @@ class SinglePlayerScene: CloudScene {
     }
   }
   
+  // Each stage's time sequences are independent of each other
+  // To find the correct sequence we need to keep track of the sum of each
+  // stage's time length. This sum can be used as an offset to make sure
+  // we're operating as if each stage starts from 0. Since the user can
+  // also pause the game we need to keep track of how much time has been
+  // paused and subtract that from the total game time and THEN subtract
+  // the stage offset.
+  var offsetTime: NSTimeInterval {
+    get {
+      return (totalGameTime - pausedOffset) - offset
+    }
+  }
+  
   var pausedOffset: NSTimeInterval = 0.0
   
   init(size: CGSize) {
@@ -142,15 +155,6 @@ class SinglePlayerScene: CloudScene {
     }
     
     if let stage = stages[currentStage] {
-      
-      // Each stage's time sequences are independent of each other
-      // To find the correct sequence we need to keep track of the sum of each
-      // stage's time length. This sum can be used as an offset to make sure
-      // we're operating as if each stage starts from 0. Since the user can
-      // also pause the game we need to keep track of how much time has been
-      // paused and subtract that from the total game time and THEN subtract
-      // the stage offset.
-      let offsetTime = (totalGameTime - pausedOffset) - offset
       
       // Get the current sequence in the stage, if stage is over then move to the next stage
       if let currentSequence = stage.sequenceContainingInterval(offsetTime) {
@@ -231,7 +235,7 @@ class SinglePlayerScene: CloudScene {
   }
   
   func gameOver() {
-    gameOverTime = totalGameTime
+    gameOverTime = offsetTime
     backgroundMusicPlayer.stop()
     view?.presentScene(GameOverScene(size: self.view!.bounds.size, taps: player.firebaseSpritesTapped, stage: currentStage, duration: gameOverTime))
   }
