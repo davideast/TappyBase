@@ -61,4 +61,8 @@ struct TappyBaseColors {
   static func orangeSkyColor() -> SKColor {
     return makeColor(248, 182, 76, 1.0)
   }
+  
+  static func redSkyColor() -> SKColor {
+    return makeColor(227, 88, 29, 1.0)
+  }
 }

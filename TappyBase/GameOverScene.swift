@@ -10,9 +10,14 @@ import Foundation
 import SpriteKit
 import AVFoundation
 
+enum ButtonLabelDirection {
+  case Left
+  case Right
+}
+
 class GameOverScene: CloudScene {
   
-  var tapsLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+  var summaryView: SKSpriteNode!
   var replayButton = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
   
   private var summary: GameSummary!
@@ -31,16 +36,13 @@ class GameOverScene: CloudScene {
   
   var duration: String {
     get {
-      return summary.duration.metric.description
+      return String(format: "%.2f", summary.duration.metric) + "s"
     }
   }
   
   init(size: CGSize, taps: Int, stage: Int, duration: NSTimeInterval) {
     super.init(size: size, backgroundMusic: "game-over.mp3", numLoops: 0)
-    
     summary = GameSummary(taps: taps, stage: stage, duration: duration)
-    
-    tapsLabel.text = self.taps
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -51,8 +53,38 @@ class GameOverScene: CloudScene {
     super.didMoveToView(view)
     backgroundColor = SKColor.whiteColor()
     
-    addTapsLabel()
-    addReplayLabel()
+    
+    summaryView = SKSpriteNode(color: TappyBaseColors.darkGrayColor(), size: CGSize(width: size.width, height: size.height))
+    
+    summaryView.alpha = 0.5
+    summaryView.position = CGPoint(x: size.width / 2, y: size.height / 2)
+    summaryView.zPosition = 1
+    
+    addChild(summaryView)
+    
+    let gameOverHeaderLabel = createHeaderLabel("Game Over", topOffset: 50)
+    
+    let blankLabel = createMetricLabel("", pairingHeader: gameOverHeaderLabel, order: 1)
+    
+    let tapsLabel = createMetricLabel("Taps", pairingHeader: gameOverHeaderLabel, order: 2)
+    let tapsValueLabel = createMetricValueLabel(taps, pairingHeader: gameOverHeaderLabel, pairingLabel: tapsLabel)
+    
+    let durationLabel = createMetricLabel("Time", pairingHeader: gameOverHeaderLabel, order: 3)
+    let durationValueLabel = createMetricValueLabel(duration, pairingHeader: gameOverHeaderLabel, pairingLabel: durationLabel)
+    
+    addChild(gameOverHeaderLabel)
+    
+    addChild(tapsLabel)
+    addChild(tapsValueLabel)
+    
+    addChild(durationLabel)
+    addChild(durationValueLabel)
+    
+    let replay = createButtonLabel("Replay", name: "replay-button", pairingHeader: gameOverHeaderLabel, direction: .Left)
+    let menu = createButtonLabel("Menu", name: "menu-button", pairingHeader: gameOverHeaderLabel, direction: .Right)
+    
+    addChild(replay)
+    addChild(menu)
   }
   
   override func willMoveFromView(view: SKView) {
@@ -66,33 +98,75 @@ class GameOverScene: CloudScene {
     
     let node = nodeAtPoint(touchLocation)
     if node.name == "replay-button" {
-  self.backgroundMusicPlayer.stop()
-  let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-  let singlePlayScene = SinglePlayerScene(size: self.size)
-  self.view?.presentScene(singlePlayScene, transition: reveal)
+      self.backgroundMusicPlayer.stop()
+      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+      let singlePlayScene = SinglePlayerScene(size: self.size)
+      self.view?.presentScene(singlePlayScene, transition: reveal)
     }
-  
+    
+    if node.name == "menu-button" {
+      self.backgroundMusicPlayer.stop()
+      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+      let titleScene = TitleGameScene(size: self.size)
+      self.view?.presentScene(titleScene, transition: reveal)
+    }
+    
   }
   
-  func addReplayLabel() {
-    replayButton.text = "Replay"
-    replayButton.fontSize = 40
-    replayButton.fontColor = TappyBaseColors.darkGrayColor()
-    replayButton.name = "replay-button"
-    replayButton.position = CGPoint(x: size.width / 2, y: (size.height / 2) - 100)
-    replayButton.zPosition = CGFloat(1)
-    replayButton.userInteractionEnabled = false
-    addChild(replayButton)
+  func createButtonLabel(text: String, name: String, pairingHeader: SKLabelNode, direction: ButtonLabelDirection) -> SKLabelNode {
+    var buttonLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    
+    buttonLabel.text = text
+    buttonLabel.fontSize = 34
+    buttonLabel.fontColor = SKColor.whiteColor()
+    buttonLabel.name = name
+    
+    switch direction {
+    case .Left:
+      buttonLabel.position = CGPoint(x: pairingHeader.position.x - 150, y: (size.height / 2) - 150)
+    case .Right:
+      buttonLabel.position = CGPoint(x: pairingHeader.position.x + 150, y: (size.height / 2) - 150)
+    }
+    
+    buttonLabel.zPosition = 2.0
+    
+    return buttonLabel
   }
   
-  func addTapsLabel() {
-    tapsLabel.fontSize = 48
-    tapsLabel.fontColor = SKColor.whiteColor()
-    tapsLabel.name = "hits-label"
-    tapsLabel.position = CGPoint(x: size.width / 2, y: (size.height / 2) + 100)
-    tapsLabel.zPosition = CGFloat(1)
-    tapsLabel.userInteractionEnabled = false
-    addChild(tapsLabel)
+  func createHeaderLabel(text: String, topOffset: CGFloat) -> SKLabelNode {
+    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    label.fontSize = 48
+    label.text = text
+    label.fontColor = SKColor.whiteColor()
+    label.position = CGPoint(x: size.width / 2, y: (size.height - label.frame.height) - topOffset)
+    label.zPosition = 2.0
+    label.userInteractionEnabled = false
+    return label
+  }
+
+  func createMetricLabel(text: String, pairingHeader: SKLabelNode, order: Int) -> SKLabelNode {
+    let orderHeight = CGFloat(order) * 50
+    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    label.fontSize = 28
+    label.text = text + ":"
+    label.fontColor = TappyBaseColors.yellowColor()
+    label.position = CGPoint(x: pairingHeader.position.x - 80, y: pairingHeader.position.y - orderHeight)
+    label.zPosition = 2.0
+    label.userInteractionEnabled = false
+    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+    return label
+  }
+  
+  func createMetricValueLabel(text: String, pairingHeader: SKLabelNode, pairingLabel: SKLabelNode) -> SKLabelNode {
+    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    label.fontSize = 28
+    label.text = text
+    label.fontColor = SKColor.whiteColor()
+    label.position = CGPoint(x: pairingHeader.position.x + 150.0 - (label.frame.width), y: pairingLabel.position.y)
+    label.zPosition = 2.0
+    label.userInteractionEnabled = false
+    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+    return label
   }
   
 }
