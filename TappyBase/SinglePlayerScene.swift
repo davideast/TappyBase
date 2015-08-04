@@ -66,6 +66,18 @@ class SinglePlayerScene: CloudScene {
     }
   }
   
+  var firebaseNodes: [TappableFirebaseSprite] {
+    get {
+      var sprites = [TappableFirebaseSprite]()
+      for sprite in children {
+        if let sprite = sprite as? TappableFirebaseSprite {
+          sprites.append(sprite)
+        }
+      }
+      return sprites
+    }
+  }
+  
   var pausedOffset: NSTimeInterval = 0.0
   
   init(size: CGSize) {
@@ -109,6 +121,10 @@ class SinglePlayerScene: CloudScene {
     let scaleDown = SKAction.fadeOutWithDuration(0.3)
     let remove = SKAction.removeFromParent()
     stageLabel.runAction(SKAction.sequence([scaleUp, SKAction.waitForDuration(1.5), scaleDown, remove]))
+    
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("swipedDown:"))
+    swipeDown.direction = .Down
+    view.addGestureRecognizer(swipeDown)
     
   }
   
@@ -263,6 +279,29 @@ class SinglePlayerScene: CloudScene {
     lastResume = totalGameTime
     pausedOffset += lastResume - lastPause
     paused = false
+  }
+  
+  func swipedDown(sender: UISwipeGestureRecognizer) {
+    if lives <= 1 {
+      return
+    }
+    
+    let powerMove = SKAction.runBlock({
+      for sprite in self.firebaseNodes {
+        let fbSprite: TappableFirebaseSprite = sprite as TappableFirebaseSprite
+        let fadeAction = SKAction.fadeOutWithDuration(0.1)
+        fbSprite.runAction(SKAction.sequence([fadeAction, SKAction.removeFromParent()]))
+        self.firebasesTapped++
+      }
+    })
+    let removeLife = SKAction.runBlock({
+      self.lives--
+    })
+    runAction(SKAction.sequence([powerMove, removeLife]))
+  }
+  
+  func doubleTapped(sender: UITapGestureRecognizer) {
+    println("double tapped")
   }
   
   required init?(coder aDecoder: NSCoder) {
