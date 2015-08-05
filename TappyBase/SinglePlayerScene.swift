@@ -68,13 +68,9 @@ class SinglePlayerScene: CloudScene {
   
   var firebaseNodes: [TappableFirebaseSprite] {
     get {
-      var sprites = [TappableFirebaseSprite]()
-      for sprite in children {
-        if let sprite = sprite as? TappableFirebaseSprite {
-          sprites.append(sprite)
-        }
-      }
-      return sprites
+      return children.filter({
+        return $0 is TappableFirebaseSprite
+      }) as! [TappableFirebaseSprite]
     }
   }
   
@@ -137,6 +133,7 @@ class SinglePlayerScene: CloudScene {
     
     let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("swipedDown:"))
     swipeDown.direction = .Down
+    swipeDown.numberOfTouchesRequired = 2
     view.addGestureRecognizer(swipeDown)
     
   }
@@ -235,7 +232,8 @@ class SinglePlayerScene: CloudScene {
   }
   
   func gameOver() {
-    gameOverTime = offsetTime
+    // The sum of the completed stage times plus the current offset time
+    gameOverTime = cumulativeStageTime(currentStage) + offsetTime
     backgroundMusicPlayer.stop()
     view?.presentScene(GameOverScene(size: self.view!.bounds.size, taps: player.firebaseSpritesTapped, stage: currentStage, duration: gameOverTime))
   }
@@ -304,8 +302,22 @@ class SinglePlayerScene: CloudScene {
     runAction(SKAction.sequence([powerMove, removeLife]))
   }
   
-  func doubleTapped(sender: UITapGestureRecognizer) {
-    println("double tapped")
+  // Return the sum of the time of each stage up until the provided stage number.
+  // The stageNumber provided is not added to the sum because it has not been completed.
+  func cumulativeStageTime(stageNumber: Int) -> NSTimeInterval {
+    
+    if stageNumber <= 1 {
+      return 0.0
+    }
+    
+    var cumulativeTime = 0.0
+    for index in 1...stageNumber-1 {
+      if let stage = stages[index] {
+        cumulativeTime += stage.totalTime
+      }
+    }
+    
+    return cumulativeTime
   }
   
   required init?(coder aDecoder: NSCoder) {

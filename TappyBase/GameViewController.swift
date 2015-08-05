@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    //  GameOverScene(size: view.bounds.size, taps: 64, stage: 4, duration: 125.73)
     let titleScene = TitleGameScene(size: view.bounds.size)
     skView = view as! SKView
     skView.showsFPS = true

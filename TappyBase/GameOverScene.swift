@@ -68,20 +68,21 @@ class GameOverScene: CloudScene {
     
     let tapsLabel = createMetricLabel("Taps", pairingHeader: gameOverHeaderLabel, order: 2)
     let tapsValueLabel = createMetricValueLabel(taps, pairingHeader: gameOverHeaderLabel, pairingLabel: tapsLabel)
-    
-    let highScoreTapsLabel = createHighScoreLabel(tapsValueLabel)
+    let tapsHighScoreLabel = createHighScoreLabel(tapsValueLabel)
     
     let durationLabel = createMetricLabel("Time", pairingHeader: gameOverHeaderLabel, order: 3)
     let durationValueLabel = createMetricValueLabel(duration, pairingHeader: gameOverHeaderLabel, pairingLabel: durationLabel)
+    let durationHighScoreLabel = createHighScoreLabel(durationValueLabel)
     
     addChild(gameOverHeaderLabel)
     
     addChild(tapsLabel)
     addChild(tapsValueLabel)
-    addChild(highScoreTapsLabel)
+    addChild(tapsHighScoreLabel)
     
     addChild(durationLabel)
     addChild(durationValueLabel)
+    addChild(durationHighScoreLabel)
     
     let replay = createButtonLabel("Replay", name: "replay-button", pairingHeader: gameOverHeaderLabel, direction: .Left)
     let menu = createButtonLabel("Menu", name: "menu-button", pairingHeader: gameOverHeaderLabel, direction: .Right)
@@ -177,9 +178,14 @@ class GameOverScene: CloudScene {
     label.fontSize = 10
     label.text = "High Score!"
     label.fontColor = TappyBaseColors.yellowColor()
-    label.position = CGPoint(x: pairingLabel.position.x + 40, y: pairingLabel.position.y)
+    label.position = CGPoint(x: (pairingLabel.position.x + pairingLabel.frame.width) + 10, y: pairingLabel.position.y)
     label.zPosition = 2.0
     label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+    let dimAction = SKAction.fadeAlphaTo(0.15, duration: 0.5)
+    let brightenAction = SKAction.fadeAlphaTo(1.0, duration: 0.5)
+    let glowingSequence = SKAction.sequence([dimAction, brightenAction])
+    let glowForever = SKAction.repeatActionForever(glowingSequence)
+    label.runAction(glowForever)
     return label
   }
   
