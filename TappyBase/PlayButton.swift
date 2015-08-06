@@ -13,15 +13,15 @@ class PlayButton : SKLabelNode, TappableNode {
   
   var onTapped: () -> Void
   
-  init(onTapped: () -> Void) {
+  init(text: String, name: String, onTapped: () -> Void) {
     self.onTapped = onTapped
     super.init()
     fontName = TappyBaseFonts.mainFont()
-    text = "Play"
+    self.text = text
     fontSize = 40
     fontColor = TappyBaseColors.darkGrayColor()
-    name = "play-button"
-    zPosition = CGFloat(1)
+    self.name = name
+    zPosition = 1.0
     userInteractionEnabled = false
   }
 

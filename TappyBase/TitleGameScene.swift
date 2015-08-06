@@ -14,7 +14,8 @@ import AVFoundation
 
 class TitleGameScene: FirebaseCloudScene {
   
-  var playButton: PlayButton!
+  var onePlayerButton: PlayButton!
+  var twoPlayerButton: PlayButton!
   var titleLabel = TitleLabel()
   
   init(size: CGSize) {
@@ -28,19 +29,31 @@ class TitleGameScene: FirebaseCloudScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     addPlayButton()
+    addTwoPlayerButton()
     addTitleLabel()
   }
   
   // NODE: UI/PlayButton
   func addPlayButton() {
-    playButton = PlayButton(onTapped: {
+    onePlayerButton = PlayButton(text: "1p", name: "play-button", onTapped: {
       self.backgroundMusicPlayer.stop()
       let reveal = SKTransition.flipHorizontalWithDuration(0.5)
       let mainGameScene = SinglePlayerScene(size: self.size)
       self.view?.presentScene(mainGameScene, transition: reveal)
     })
-    playButton.position = CGPoint(x: size.width / 2, y: (size.height / 2) - 100)
-    addChild(playButton)
+    onePlayerButton.position = CGPoint(x: (size.width / 2) - 150, y: (size.height / 2) - 100)
+    addChild(onePlayerButton)
+  }
+  
+  func addTwoPlayerButton() {
+    twoPlayerButton = PlayButton(text: "2p", name: "2play-button", onTapped: {
+      self.backgroundMusicPlayer.stop()
+      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+      let matchmakingScene = MatchmakingScene(size: self.size)
+      self.view?.presentScene(matchmakingScene, transition: reveal)
+    })
+    twoPlayerButton.position = CGPoint(x: (size.width / 2) + 150, y: (size.height / 2) - 100)
+    addChild(twoPlayerButton)
   }
   
   // NODE: UI/TitleLabel

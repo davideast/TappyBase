@@ -27,10 +27,7 @@ class SinglePlayerScene: CloudScene {
   var gameOverTime: NSTimeInterval = 0.0
   
   // HUD
-  let smallSprite = BoltSprite()
-  var livesLeftNode = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
-  var pauseButton = PauseButton()
-  var maskNode: SKSpriteNode!
+  var mainHUD: SinglePlayerHud!
   
   var lives: Int {
     get {
@@ -38,7 +35,7 @@ class SinglePlayerScene: CloudScene {
     }
     set {
       player.lives = newValue
-      livesLeftNode.text = newValue.description
+      mainHUD.livesLeftNode.text = newValue.description
       
       if newValue == 0 {
         gameOver()
@@ -100,11 +97,18 @@ class SinglePlayerScene: CloudScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     
-    maskNode = SKSpriteNode(color: UIColor.blackColor(), size: size)
-    maskNode.position = CGPointMake(size.width / 2, size.height / 2)
-    
-    // Create HUD
-    displayHUD()
+    mainHUD = SinglePlayerHud(size: size, onPausedTapped: { hud in
+      let isPaused = !self.paused
+      
+      if isPaused {
+        self.pauseGame()
+        hud.showPausedScreen()
+      } else {
+        self.unpauseGame()
+        hud.unshowPausedScreen()
+      }
+    })
+    addChild(mainHUD)
     
     // Set initial lives
     lives = player.lives
@@ -236,40 +240,6 @@ class SinglePlayerScene: CloudScene {
     gameOverTime = cumulativeStageTime(currentStage) + offsetTime
     backgroundMusicPlayer.stop()
     view?.presentScene(GameOverScene(size: self.view!.bounds.size, taps: player.firebaseSpritesTapped, stage: currentStage, duration: gameOverTime))
-  }
-  
-  func displayHUD() {
-    
-    smallSprite.anchorPoint = CGPoint(x: 0, y: 0)
-    smallSprite.position = CGPoint(x: size.width - (smallSprite.size.width + livesLeftNode.frame.size.width + 70), y: size.height - (smallSprite.size.height + 20))
-    
-    livesLeftNode.position = CGPoint(x: size.width - (livesLeftNode.frame.size.width + 40), y: size.height - (smallSprite.size.height + 12))
-    livesLeftNode.fontSize = 20
-    
-    pauseButton.anchorPoint = CGPoint(x: 0, y: 0)
-    pauseButton.position = CGPoint(x: size.width - (pauseButton.size.width + 20), y: 10)
-    pauseButton.zPosition = 3
-    
-    pauseButton.onTapped = {
-      let isPaused = !self.paused
-      
-      if isPaused {
-        self.pauseGame()
-        self.maskNode.alpha = 0.3
-        self.maskNode.zPosition = 2
-        self.addChild(self.maskNode)
-      } else {
-        self.unpauseGame()
-        self.maskNode.removeFromParent()
-      }
-    }
-    
-    spawnRateLabel.position = CGPoint(x: spawnRateLabel.frame.width + 60, y: size.height - 50)
-    
-    addChild(smallSprite)
-    addChild(livesLeftNode)
-    addChild(pauseButton)
-    // addChild(spawnRateLabel)
   }
   
   func pauseGame() {

@@ -12,6 +12,14 @@
 		BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123D1B6FB3A700E95D40 /* GameSummary.swift */; };
 		BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */; };
 		BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9247751B58781C00138AAD /* FirebasePlayer.swift */; };
+		BB97C2151B723BFA0066FF34 /* SinglePlayerHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */; };
+		BB97C21A1B72D39C0066FF34 /* MultiplayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */; };
+		BB97C21C1B7381CE0066FF34 /* MatchmakingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C21B1B7381CE0066FF34 /* MatchmakingScene.swift */; };
+		BB97C21E1B73897E0066FF34 /* TappyBaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C21D1B73897E0066FF34 /* TappyBaseActions.swift */; };
+		BB97C2211B738B110066FF34 /* FindingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2201B738B110066FF34 /* FindingLabel.swift */; };
+		BB97C2231B738B9D0066FF34 /* FadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2221B738B9D0066FF34 /* FadingLabel.swift */; };
+		BB97C2251B7390300066FF34 /* MainFontLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2241B7390300066FF34 /* MainFontLabel.swift */; };
+		BB97C2271B7396E40066FF34 /* MatchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2261B7396E40066FF34 /* MatchLabel.swift */; };
 		BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA138371B5B3D63005FAEEC /* GameOverScene.swift */; };
 		BBA1383A1B5B3F4A005FAEEC /* game-over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBA138391B5B3F4A005FAEEC /* game-over.mp3 */; };
 		BBA1383C1B5B4007005FAEEC /* 8-bit-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBA1383B1B5B4007005FAEEC /* 8-bit-music.mp3 */; };
@@ -80,6 +88,14 @@
 		BB30123D1B6FB3A700E95D40 /* GameSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
 		BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableMainLabel.swift; sourceTree = "<group>"; };
 		BB9247751B58781C00138AAD /* FirebasePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebasePlayer.swift; sourceTree = "<group>"; };
+		BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlayerHud.swift; sourceTree = "<group>"; };
+		BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerScene.swift; sourceTree = "<group>"; };
+		BB97C21B1B7381CE0066FF34 /* MatchmakingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchmakingScene.swift; sourceTree = "<group>"; };
+		BB97C21D1B73897E0066FF34 /* TappyBaseActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseActions.swift; sourceTree = "<group>"; };
+		BB97C2201B738B110066FF34 /* FindingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingLabel.swift; sourceTree = "<group>"; };
+		BB97C2221B738B9D0066FF34 /* FadingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadingLabel.swift; sourceTree = "<group>"; };
+		BB97C2241B7390300066FF34 /* MainFontLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFontLabel.swift; sourceTree = "<group>"; };
+		BB97C2261B7396E40066FF34 /* MatchLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchLabel.swift; sourceTree = "<group>"; };
 		BBA138371B5B3D63005FAEEC /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		BBA138391B5B3F4A005FAEEC /* game-over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-over.mp3"; sourceTree = "<group>"; };
 		BBA1383B1B5B4007005FAEEC /* 8-bit-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8-bit-music.mp3"; sourceTree = "<group>"; };
@@ -191,6 +207,25 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		BB97C2181B72D2340066FF34 /* Multiplayer Scene */ = {
+			isa = PBXGroup;
+			children = (
+				BB97C21F1B738B060066FF34 /* UI */,
+				BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */,
+				BB97C21B1B7381CE0066FF34 /* MatchmakingScene.swift */,
+			);
+			name = "Multiplayer Scene";
+			sourceTree = "<group>";
+		};
+		BB97C21F1B738B060066FF34 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BB97C2201B738B110066FF34 /* FindingLabel.swift */,
+				BB97C2261B7396E40066FF34 /* MatchLabel.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		BBBD120C1B567D5D0011CC6D = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +255,7 @@
 				BBBD12491B568BCD0011CC6D /* Base Scenes */,
 				BBBF0CBA1B66AA22008EA651 /* Title Scene */,
 				BBBF0CB91B66AA12008EA651 /* Single Player Scene */,
+				BB97C2181B72D2340066FF34 /* Multiplayer Scene */,
 				BB30123F1B6FB6F000E95D40 /* Game Over Scene */,
 				BBBD124E1B568C170011CC6D /* Controllers */,
 				BBBD12511B568F6D0011CC6D /* Models */,
@@ -344,6 +380,7 @@
 				BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */,
 				BBBF0CC41B66AC00008EA651 /* TappBaseFonts.swift */,
 				BBBF0CA91B657E93008EA651 /* SKTexture.swift */,
+				BB97C21D1B73897E0066FF34 /* TappyBaseActions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -355,6 +392,9 @@
 				BBF4D3031B6A5B9900196F8E /* PauseButton.swift */,
 				BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */,
 				BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */,
+				BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */,
+				BB97C2221B738B9D0066FF34 /* FadingLabel.swift */,
+				BB97C2241B7390300066FF34 /* MainFontLabel.swift */,
 			);
 			name = "Base UI";
 			sourceTree = "<group>";
@@ -562,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */,
+				BB97C21A1B72D39C0066FF34 /* MultiplayerScene.swift in Sources */,
 				BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */,
 				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,
@@ -569,7 +610,10 @@
 				BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */,
 				BBBD12551B568FD10011CC6D /* FirebaseNode.swift in Sources */,
 				BBBF0CB11B668F30008EA651 /* CloudScene.swift in Sources */,
+				BB97C2231B738B9D0066FF34 /* FadingLabel.swift in Sources */,
 				BBBF0CC31B66AB8D008EA651 /* PlayButton.swift in Sources */,
+				BB97C2211B738B110066FF34 /* FindingLabel.swift in Sources */,
+				BB97C21C1B7381CE0066FF34 /* MatchmakingScene.swift in Sources */,
 				BBBF0CB51B669664008EA651 /* GradientNode.swift in Sources */,
 				BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */,
 				BBF4D3041B6A5B9900196F8E /* PauseButton.swift in Sources */,
@@ -582,7 +626,10 @@
 				BBBD12211B567D5D0011CC6D /* GameViewController.swift in Sources */,
 				BBBF0CC51B66AC00008EA651 /* TappBaseFonts.swift in Sources */,
 				BBBD12571B569AF90011CC6D /* MainGameScene.swift in Sources */,
+				BB97C2251B7390300066FF34 /* MainFontLabel.swift in Sources */,
 				BBBD121B1B567D5D0011CC6D /* AppDelegate.swift in Sources */,
+				BB97C2151B723BFA0066FF34 /* SinglePlayerHud.swift in Sources */,
+				BB97C2271B7396E40066FF34 /* MatchLabel.swift in Sources */,
 				BBBF0CA81B657E3C008EA651 /* TappyBaseSounds.swift in Sources */,
 				BBBD12501B568C530011CC6D /* Helpers.swift in Sources */,
 				BBBF0CCD1B66BF1B008EA651 /* Player.swift in Sources */,
@@ -593,6 +640,7 @@
 				BBBF0CB71B669F39008EA651 /* TappableScene.swift in Sources */,
 				BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */,
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
+				BB97C21E1B73897E0066FF34 /* TappyBaseActions.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,
 				BBBF0CA41B657DDA008EA651 /* TappyBaseColors.swift in Sources */,

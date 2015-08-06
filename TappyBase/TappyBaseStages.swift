@@ -19,7 +19,8 @@ struct TappyBaseStages {
       4: TappyBaseStages.stageFour(),
       5: TappyBaseStages.stageFive(),
       6: TappyBaseStages.stageSix(),
-      7: TappyBaseStages.stageSeven()
+      7: TappyBaseStages.stageSeven(),
+      8: TappyBaseStages.stageEight()
     ]
   }
   
@@ -61,7 +62,7 @@ struct TappyBaseStages {
     
     let first = TimeSequence(start: 0.0, end: 4.0, spawnRate: -1.0)
     let pre = TimeSequence(start: 4.0, end: 14.0, spawnRate: 1.0, spawnAmount: 1)
-    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.95, spawnAmount: 1)
+    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.95, spawnAmount: 2)
     let third = TimeSequence(start: 20, end: 40, spawnRate: 0.95, spawnAmount: 2)
     let fourth = TimeSequence(start: 40, end: 43, spawnRate: -1.0)
     
@@ -96,9 +97,9 @@ struct TappyBaseStages {
     
     let first = TimeSequence(start: 0.0, end: 4.0, spawnRate: -1)
     let pre = TimeSequence(start: 4.0, end: 14.0, spawnRate: 1.0, spawnAmount: 2)
-    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.85, spawnAmount: 1)
-    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 1)
-    let fourth = TimeSequence(start: 40, end: 50, spawnRate: 0.7, spawnAmount: 1)
+    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.85, spawnAmount: 2)
+    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 2)
+    let fourth = TimeSequence(start: 40, end: 50, spawnRate: 0.7, spawnAmount: 2)
     let fifth = TimeSequence(start: 50, end: 60, spawnRate: 0.8, spawnAmount: 2)
     let sixth = TimeSequence(start: 60, end: 63, spawnRate: -1.0)
     
@@ -115,8 +116,8 @@ struct TappyBaseStages {
     
     let first = TimeSequence(start: 0.0, end: 4.0, spawnRate: -1)
     let pre = TimeSequence(start: 4.0, end: 14.0, spawnRate: 1.0, spawnAmount: 2)
-    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.85, spawnAmount: 1)
-    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 1)
+    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.85, spawnAmount: 2)
+    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 2)
     let fourth = TimeSequence(start: 40, end: 50, spawnRate: 0.7, spawnAmount: 2)
     let fifth = TimeSequence(start: 50, end: 60, spawnRate: 0.8, spawnAmount: 2)
     let sixth = TimeSequence(start: 60, end: 63, spawnRate: -1.0)
@@ -135,7 +136,7 @@ struct TappyBaseStages {
     let first = TimeSequence(start: 0.0, end: 4.0, spawnRate: -1)
     let pre = TimeSequence(start: 4.0, end: 14.0, spawnRate: 1.0, spawnAmount: 2)
     let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.85, spawnAmount: 2)
-    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 3)
+    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.75, spawnAmount: 2)
     let fourth = TimeSequence(start: 40, end: 50, spawnRate: 0.7, spawnAmount: 3)
     let fifth = TimeSequence(start: 50, end: 60, spawnRate: 0.8, spawnAmount: 3)
     let sixth = TimeSequence(start: 60, end: 63, spawnRate: -1.0)
@@ -145,6 +146,25 @@ struct TappyBaseStages {
     let stageColor = StageColorization(color: TappyBaseColors.nightSkyBlueColor(), blendFactor: 4.0 * StageColorization.Factor)
     
     return Stage(number: number, timeSequences: sequences, cloudSpeed: 400.0, stageColor: stageColor)
+  }
+  
+  static func stageEight() -> Stage {
+    
+    let number = 8
+    
+    let first = TimeSequence(start: 0.0, end: 4.0, spawnRate: -1)
+    let pre = TimeSequence(start: 4.0, end: 14.0, spawnRate: 0.65, spawnAmount: 1)
+    let second = TimeSequence(start: 14.0, end: 20.0, spawnRate: 0.8, spawnAmount: 2)
+    let third = TimeSequence(start: 20, end: 40, spawnRate: 0.7, spawnAmount: 2)
+    let fourth = TimeSequence(start: 40, end: 50, spawnRate: 0.6, spawnAmount: 2)
+    let fifth = TimeSequence(start: 50, end: 60, spawnRate: 0.7, spawnAmount: 3)
+    let sixth = TimeSequence(start: 60, end: 63, spawnRate: -1.0)
+    
+    let sequences = [first, pre, second, third, fourth, fifth, sixth]
+    
+    let stageColor = StageColorization(color: TappyBaseColors.redSkyColor(), blendFactor: 4.0 * StageColorization.Factor)
+    
+    return Stage(number: number, timeSequences: sequences, cloudSpeed: 460.0, stageColor: stageColor)
   }
   
 }
