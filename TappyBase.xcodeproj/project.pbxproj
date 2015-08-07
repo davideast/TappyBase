@@ -11,6 +11,7 @@
 		BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */; };
 		BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123D1B6FB3A700E95D40 /* GameSummary.swift */; };
 		BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */; };
+		BB6AEA981B73FB19002EA2DE /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AEA971B73FB19002EA2DE /* GameManager.swift */; };
 		BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9247751B58781C00138AAD /* FirebasePlayer.swift */; };
 		BB97C2151B723BFA0066FF34 /* SinglePlayerHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */; };
 		BB97C21A1B72D39C0066FF34 /* MultiplayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */; };
@@ -87,6 +88,7 @@
 		BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLabelNode.swift; sourceTree = "<group>"; };
 		BB30123D1B6FB3A700E95D40 /* GameSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
 		BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableMainLabel.swift; sourceTree = "<group>"; };
+		BB6AEA971B73FB19002EA2DE /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		BB9247751B58781C00138AAD /* FirebasePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebasePlayer.swift; sourceTree = "<group>"; };
 		BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlayerHud.swift; sourceTree = "<group>"; };
 		BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerScene.swift; sourceTree = "<group>"; };
@@ -207,6 +209,14 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		BB6AEA961B73FAF3002EA2DE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BB6AEA971B73FB19002EA2DE /* GameManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		BB97C2181B72D2340066FF34 /* Multiplayer Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +269,7 @@
 				BB30123F1B6FB6F000E95D40 /* Game Over Scene */,
 				BBBD124E1B568C170011CC6D /* Controllers */,
 				BBBD12511B568F6D0011CC6D /* Models */,
+				BB6AEA961B73FAF3002EA2DE /* Managers */,
 				BBBD124D1B568BFA0011CC6D /* Layouts */,
 				BBBD123E1B5689310011CC6D /* Sounds */,
 				BBBF0CA21B657DB6008EA651 /* Utils */,
@@ -620,6 +631,7 @@
 				BBBD12531B568F920011CC6D /* FirebaseSpriteNode.swift in Sources */,
 				BBBD121F1B567D5D0011CC6D /* TitleGameScene.swift in Sources */,
 				BBBF0CC11B66AB5A008EA651 /* FirebaseCloudScene.swift in Sources */,
+				BB6AEA981B73FB19002EA2DE /* GameManager.swift in Sources */,
 				BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */,
 				BBBF0CAF1B668901008EA651 /* TappableNode.swift in Sources */,
 				BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */,

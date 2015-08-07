@@ -72,6 +72,12 @@ class MatchmakingScene : CloudScene {
         self.ownLabel.runAction(fadeInAction)
         self.opponentLabel.runAction(fadeInAction)
         self.versusLabel.runAction(fadeInAction)
+      }),
+      SKAction.waitForDuration(5.0),
+      SKAction.runBlock({
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        let multiplayerScreen = MultiplayerScene(size: self.size)
+        self.view?.presentScene(multiplayerScreen, transition: reveal)
       })
       ])
     

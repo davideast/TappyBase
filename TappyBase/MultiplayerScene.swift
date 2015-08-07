@@ -9,7 +9,7 @@
 import SpriteKit
 
 class MultiplayerScene: SinglePlayerScene {
- 
+  
   override init(size: CGSize) {
     super.init(size: size)
   }
