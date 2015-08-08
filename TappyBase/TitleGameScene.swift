@@ -11,6 +11,7 @@
 
 import SpriteKit
 import AVFoundation
+import GameKit
 
 class TitleGameScene: FirebaseCloudScene {
   

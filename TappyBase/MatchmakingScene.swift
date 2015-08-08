@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameKit
 
 class MatchmakingScene : CloudScene {
   
@@ -25,6 +26,7 @@ class MatchmakingScene : CloudScene {
   
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
+    let player = GKLocalPlayer.localPlayer()
     
     let whiteColor = UIColor.whiteColor()
     

@@ -71,6 +71,8 @@
 		BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D3061B6B51FC00196F8E /* Stage.swift */; };
 		BBF4D3091B6BF57700196F8E /* stages.json in Resources */ = {isa = PBXBuildFile; fileRef = BBF4D3081B6BF57700196F8E /* stages.json */; };
 		BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */; };
+		E86C5E571B763EA3005E4672 /* GameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5E561B763EA3005E4672 /* GameKitManager.swift */; };
+		E86C5E591B764452005E4672 /* GameKitAuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5E581B764452005E4672 /* GameKitAuthResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,8 @@
 		BBF4D3061B6B51FC00196F8E /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BBF4D3081B6BF57700196F8E /* stages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stages.json; sourceTree = "<group>"; };
 		BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseStages.swift; sourceTree = "<group>"; };
+		E86C5E561B763EA3005E4672 /* GameKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitManager.swift; sourceTree = "<group>"; };
+		E86C5E581B764452005E4672 /* GameKitAuthResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitAuthResult.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				BB6AEA971B73FB19002EA2DE /* GameManager.swift */,
+				E86C5E561B763EA3005E4672 /* GameKitManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				BBBF0CCC1B66BF1B008EA651 /* Player.swift */,
 				BBBF0CD21B67A1A2008EA651 /* Game.swift */,
 				BB30123D1B6FB3A700E95D40 /* GameSummary.swift */,
+				E86C5E581B764452005E4672 /* GameKitAuthResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -400,10 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				BBBF0CB41B669664008EA651 /* GradientNode.swift */,
-				BBF4D3031B6A5B9900196F8E /* PauseButton.swift */,
 				BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */,
 				BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */,
-				BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */,
 				BB97C2221B738B9D0066FF34 /* FadingLabel.swift */,
 				BB97C2241B7390300066FF34 /* MainFontLabel.swift */,
 			);
@@ -442,6 +446,8 @@
 		BBBF0CBC1B66AA65008EA651 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB97C2141B723BFA0066FF34 /* SinglePlayerHud.swift */,
+				BBF4D3031B6A5B9900196F8E /* PauseButton.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,
 				BBBF0CCB1B66BC28008EA651 /* UpdateIntervalScene.swift in Sources */,
+				E86C5E571B763EA3005E4672 /* GameKitManager.swift in Sources */,
 				BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */,
 				BBBD12551B568FD10011CC6D /* FirebaseNode.swift in Sources */,
 				BBBF0CB11B668F30008EA651 /* CloudScene.swift in Sources */,
@@ -632,6 +639,7 @@
 				BBBD121F1B567D5D0011CC6D /* TitleGameScene.swift in Sources */,
 				BBBF0CC11B66AB5A008EA651 /* FirebaseCloudScene.swift in Sources */,
 				BB6AEA981B73FB19002EA2DE /* GameManager.swift in Sources */,
+				E86C5E591B764452005E4672 /* GameKitAuthResult.swift in Sources */,
 				BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */,
 				BBBF0CAF1B668901008EA651 /* TappableNode.swift in Sources */,
 				BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */,

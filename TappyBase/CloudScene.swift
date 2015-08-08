@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 davideast. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 import AVFoundation
+import GameKit
 
 class CloudScene: TappableScene {
   

@@ -253,6 +253,10 @@ class SinglePlayerScene: CloudScene {
     paused = false
   }
   
+  func goHome() {
+    view?.presentScene(TitleGameScene(size: size))
+  }
+  
   func swipedDown(sender: UISwipeGestureRecognizer) {
     if lives <= 1 {
       return

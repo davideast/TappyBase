@@ -6,9 +6,10 @@
 //  Copyright (c) 2015 davideast. All rights reserved.
 //
 
-import Foundation
+import GameKit
 
 struct Player {
   var lives: Int
   var firebaseSpritesTapped: Int
+  let gkPlayer = GKLocalPlayer.localPlayer()
 }
