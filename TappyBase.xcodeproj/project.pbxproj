@@ -76,6 +76,7 @@
 		E8E46C831B76A92700516B22 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C821B76A92700516B22 /* MatchManager.swift */; };
 		E8E46C851B76A9A100516B22 /* TappyBaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */; };
 		E8E46C871B76C04A00516B22 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C861B76C04A00516B22 /* Opponent.swift */; };
+		E8E46C8A1B7781E800516B22 /* HotPotatoSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C891B7781E800516B22 /* HotPotatoSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		E8E46C821B76A92700516B22 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 		E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseConstants.swift; sourceTree = "<group>"; };
 		E8E46C861B76C04A00516B22 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
+		E8E46C891B7781E800516B22 /* HotPotatoSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotPotatoSprite.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -481,6 +483,7 @@
 		E8E46C881B7769C100516B22 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				E8E46C891B7781E800516B22 /* HotPotatoSprite.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				BBBF0CB71B669F39008EA651 /* TappableScene.swift in Sources */,
 				BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */,
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
+				E8E46C8A1B7781E800516B22 /* HotPotatoSprite.swift in Sources */,
 				E8E46C851B76A9A100516B22 /* TappyBaseConstants.swift in Sources */,
 				BB97C21E1B73897E0066FF34 /* TappyBaseActions.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,

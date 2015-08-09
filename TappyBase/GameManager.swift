@@ -23,20 +23,34 @@ class GameManager {
     self.match = match
     
     // /players/$match/$auth.id
-    self.localPlayerRef = TappyBaseConstants.playersRef()
+    localPlayerRef = TappyBaseConstants.playersRef()
       .childByAppendingPath(match.ref.key)
       .childByAppendingPath(match.localPlayer.id)
     
     // /players/$match/$auth.id
-    self.opponentRef = TappyBaseConstants.playersRef()
+    opponentRef = TappyBaseConstants.playersRef()
       .childByAppendingPath(match.ref.key)
       .childByAppendingPath(match.opponent.playerID)
     
     // /hotPotatoes/$match/$auth.id
-    self.hotPotatoRef = TappyBaseConstants.hotPotatoesRef()
+    hotPotatoRef = TappyBaseConstants.hotPotatoesRef()
       .childByAppendingPath(match.ref.key)
   }
   
+  func listenForHotPotatoes(onHotPotatoAdded: () -> Void) {
+    hotPotatoRef.observeEventType(.ChildAdded, withBlock: { snap in
+      let id = snap.value as! String
+      if id == self.match.localPlayer.id {
+        onHotPotatoAdded()
+      }
+    })
+  }
+  
+  func sendHotPotatoToOpponent() {
+    let newPotatoRef = hotPotatoRef.childByAutoId()
+    newPotatoRef.onDisconnectRemoveValue()
+    newPotatoRef.setValue(match.opponent.playerID)
+  }
   
   deinit {
     self.match.ref.removeAllObservers()

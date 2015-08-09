@@ -11,11 +11,10 @@ import GameKit
 
 class MultiplayerScene: SinglePlayerScene {
   
-  let opponent: Opponent
-  let localPlayer = LocalPlayer(localPlayer: GKLocalPlayer.localPlayer())
+  let gameManager: GameManager
   
-  init(size: CGSize, opponent: Opponent) {
-    self.opponent = opponent
+  init(size: CGSize, match: Match) {
+    gameManager = GameManager(match: match)
     super.init(size: size)
   }
 
@@ -26,6 +25,10 @@ class MultiplayerScene: SinglePlayerScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     
+    gameManager.listenForHotPotatoes {
+      self.spawnHotPotatoFirebase()
+    }
+    
     // No pausing in multiplayer
     mainHUD.pauseButton.removeFromParent()
   }
@@ -33,9 +36,8 @@ class MultiplayerScene: SinglePlayerScene {
   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
     super.touchesBegan(touches, withEvent: event)
     
-    if hasTappedAMultipleOf(3) {
-      // TODO: Inform Firebase game node that the other player gets a base added to their screen
-      spawnFirebase(1)
+    if firebasesTapped == 1 {
+      spawnHotPotatoFirebase()
     }
     
   }
@@ -45,7 +47,20 @@ class MultiplayerScene: SinglePlayerScene {
   }
   
   func spawnHotPotatoFirebase() {
+    // Create a Sprite that increments taps when tapped and
+    // removes a life when FirebaseSprite moves across the screen w/out a tap
+    let hotPotatoSprite = HotPotatoSprite(onTapped: { _ in
+      self.firebasesTapped++
+      self.gameManager.sendHotPotatoToOpponent()
+      }, onDone: {
+        self.gameOver()
+    })
     
+    moveFromLeft(hotPotatoSprite, size, 1.5, 2.3, {
+      hotPotatoSprite.onDone?()
+    })
+    
+    addChild(hotPotatoSprite)
   }
   
   

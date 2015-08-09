@@ -40,13 +40,15 @@ class MatchmakingScene : CloudScene {
     matchManager.findOrCreateMatch { (match: Match) in
       self.opponent = match.opponent
       self.opponentLabel.text = self.opponent.alias
-      self.runAction(SKAction.runBlock(self.matchFound))
+      self.runAction(SKAction.runBlock({
+        self.matchFound(match)
+      }))
     }
     
     ownLabel = MainFontLabel(text: GKLocalPlayer.localPlayer().alias, color: whiteColor)
     ownLabel.alpha = 0.0
     ownLabel.fontSize = 18.0
-    ownLabel.position = CGPoint(x: 40, y: CGRectGetMidY(frame)) //getCenterWithXOffset(200)
+    ownLabel.position = CGPoint(x: 40, y: CGRectGetMidY(frame))
     ownLabel.horizontalAlignmentMode = .Left
     addChild(ownLabel)
     
@@ -64,7 +66,7 @@ class MatchmakingScene : CloudScene {
     addChild(versusLabel)
   }
   
-  func matchFound() {
+  func matchFound(match: Match) {
     
     let fadeInMatch = SKAction.sequence([
       SKAction.runBlock({
@@ -80,7 +82,7 @@ class MatchmakingScene : CloudScene {
       SKAction.waitForDuration(7.0),
       SKAction.runBlock({
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        let multiplayerScreen = MultiplayerScene(size: self.size, opponent: self.opponent)
+        let multiplayerScreen = MultiplayerScene(size: self.size, match: match)
         self.view?.presentScene(multiplayerScreen, transition: reveal)
       })
       ])
