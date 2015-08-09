@@ -52,11 +52,27 @@ class GameManager {
     newPotatoRef.setValue(match.opponent.playerID)
   }
   
+  func gameOver() {
+    removeAllValues()
+    removeAllObservers()
+  }
+  
+  private func removeAllValues() {
+    hotPotatoRef.removeValue()
+    localPlayerRef.removeValue()
+    opponentRef.removeValue()
+    match.ref.removeValue()
+  }
+  
+  private func removeAllObservers() {
+    match.ref.removeAllObservers()
+    localPlayerRef.removeAllObservers()
+    opponentRef.removeAllObservers()
+    hotPotatoRef.removeAllObservers()
+  }
+  
   deinit {
-    self.match.ref.removeAllObservers()
-    self.localPlayerRef.removeAllObservers()
-    self.opponentRef.removeAllObservers()
-    self.hotPotatoRef.removeAllObservers()
+    removeAllObservers()
   }
   
   

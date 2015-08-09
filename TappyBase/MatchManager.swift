@@ -12,6 +12,7 @@ struct Match {
   let localPlayer: LocalPlayer
   let opponent: Opponent
   let ref: Firebase
+  let firstToGetHotPotato: String
 }
 
 // The three states
@@ -74,7 +75,7 @@ class MatchManager {
           // create match
           let local = LocalPlayer(localPlayer: self.localPlayer, ref: localPlayerRef)
           let opponent = Opponent(snapshot: opponentSnap!)
-          let match = Match(localPlayer: local, opponent: opponent, ref: matchRef)
+          let match = Match(localPlayer: local, opponent: opponent, ref: matchRef, firstToGetHotPotato: local.id)
           
           matchFound = match
           break
@@ -98,7 +99,7 @@ class MatchManager {
       if snap.key != self.localPlayer.playerID {
         let local = LocalPlayer(localPlayer: self.localPlayer, ref: localPlayerRef)
         let opponent = Opponent(snapshot: snap)
-        let match = Match(localPlayer: local, opponent: opponent, ref: matchRef)
+        let match = Match(localPlayer: local, opponent: opponent, ref: matchRef, firstToGetHotPotato: opponent.playerID)
         onOpponentJoin(match: match)
       }
     })

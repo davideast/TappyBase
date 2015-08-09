@@ -25,6 +25,14 @@ class MultiplayerScene: SinglePlayerScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     
+    if gameManager.match.firstToGetHotPotato == gameManager.match.localPlayer.id {
+      let waitToAddHotPotatoSequence = SKAction.sequence([
+        SKAction.waitForDuration(6.0),
+        SKAction.runBlock(spawnHotPotatoFirebase)
+      ])
+      runAction(waitToAddHotPotatoSequence)
+    }
+    
     gameManager.listenForHotPotatoes {
       self.spawnHotPotatoFirebase()
     }
@@ -35,15 +43,6 @@ class MultiplayerScene: SinglePlayerScene {
   
   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
     super.touchesBegan(touches, withEvent: event)
-    
-    if firebasesTapped == 1 {
-      spawnHotPotatoFirebase()
-    }
-    
-  }
-  
-  func hasTappedAMultipleOf(multiple: Int) -> Bool {
-    return firebasesTapped % multiple == 0
   }
   
   func spawnHotPotatoFirebase() {
@@ -54,6 +53,7 @@ class MultiplayerScene: SinglePlayerScene {
       self.gameManager.sendHotPotatoToOpponent()
       }, onDone: {
         self.gameOver()
+        self.gameManager.gameOver()
     })
     
     moveFromLeft(hotPotatoSprite, size, 1.5, 2.3, {
