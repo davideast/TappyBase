@@ -7,10 +7,15 @@
 //
 
 import SpriteKit
+import GameKit
 
 class MultiplayerScene: SinglePlayerScene {
   
-  override init(size: CGSize) {
+  let opponent: Opponent
+  let localPlayer = LocalPlayer(localPlayer: GKLocalPlayer.localPlayer())
+  
+  init(size: CGSize, opponent: Opponent) {
+    self.opponent = opponent
     super.init(size: size)
   }
 
@@ -37,6 +42,10 @@ class MultiplayerScene: SinglePlayerScene {
   
   func hasTappedAMultipleOf(multiple: Int) -> Bool {
     return firebasesTapped % multiple == 0
+  }
+  
+  func spawnHotPotatoFirebase() {
+    
   }
   
   

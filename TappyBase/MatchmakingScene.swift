@@ -15,6 +15,7 @@ class MatchmakingScene : CloudScene {
   var opponentLabel: MainFontLabel!
   var ownLabel: MainFontLabel!
   var versusLabel: MainFontLabel!
+  var opponent: Opponent!
   
   init(size: CGSize) {
     super.init(size: size, backgroundMusic: "")
@@ -34,19 +35,22 @@ class MatchmakingScene : CloudScene {
     findingLabel.position = getCenterWithXOffset(0)
     addChild(findingLabel)
     
-    let waitAndFind = SKAction.sequence([
-      SKAction.waitForDuration(5.0),
-      SKAction.runBlock(matchFound)
-      ])
+    let matchManager = MatchManager(localPlayer: GKLocalPlayer.localPlayer())
     
-    ownLabel = MainFontLabel(text: "david.east", color: whiteColor)
+    matchManager.findOrCreateMatch { (match: Match) in
+      self.opponent = match.opponent
+      self.opponentLabel.text = self.opponent.alias
+      self.runAction(SKAction.runBlock(self.matchFound))
+    }
+    
+    ownLabel = MainFontLabel(text: GKLocalPlayer.localPlayer().alias, color: whiteColor)
     ownLabel.alpha = 0.0
     ownLabel.fontSize = 18.0
     ownLabel.position = CGPoint(x: 40, y: CGRectGetMidY(frame)) //getCenterWithXOffset(200)
     ownLabel.horizontalAlignmentMode = .Left
     addChild(ownLabel)
     
-    opponentLabel = MainFontLabel(text: "shannon.east", color: whiteColor)
+    opponentLabel = MainFontLabel(text: "", color: whiteColor)
     opponentLabel.alpha = 0.0
     opponentLabel.fontSize = 18.0
     opponentLabel.position = CGPoint(x: frame.width - 40, y: CGRectGetMidY(frame))
@@ -58,8 +62,6 @@ class MatchmakingScene : CloudScene {
     versusLabel.fontSize = 28.0
     versusLabel.position = getCenterWithXOffset(0)
     addChild(versusLabel)
-
-    runAction(waitAndFind)
   }
   
   func matchFound() {
@@ -75,10 +77,10 @@ class MatchmakingScene : CloudScene {
         self.opponentLabel.runAction(fadeInAction)
         self.versusLabel.runAction(fadeInAction)
       }),
-      SKAction.waitForDuration(5.0),
+      SKAction.waitForDuration(7.0),
       SKAction.runBlock({
         let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        let multiplayerScreen = MultiplayerScene(size: self.size)
+        let multiplayerScreen = MultiplayerScene(size: self.size, opponent: self.opponent)
         self.view?.presentScene(multiplayerScreen, transition: reveal)
       })
       ])

@@ -10,32 +10,40 @@ import SpriteKit
 
 typealias TappableFirebaseCallback = (sprite: TappableFirebaseSprite) -> Void
 
-struct GameManager {
+class GameManager {
   
-  let gameRef: Firebase
+  let match: Match
+  
   let localPlayerRef: Firebase
   let opponentRef: Firebase
-  let opponentSpriteQueueRef: Firebase
-  let localSpriteQueueRef: Firebase
-  // let onItemAdded: TappableFirebaseCallback
+  let hotPotatoRef: Firebase
   
-  init(gameId: String, localPlayerId: String, opponentId: String, onItemAdded: TappableFirebaseCallback) {
-    let url = "https://tappybase.firebaseio.com"
-    gameRef = Firebase(url: "\(url)/games/\(gameId)")
-    localPlayerRef = gameRef.childByAppendingPath(localPlayerId)
-    opponentRef = gameRef.childByAppendingPath(opponentId)
-    opponentSpriteQueueRef = gameRef.childByAppendingPath("spriteQueue").childByAppendingPath(opponentId)
-    localSpriteQueueRef = gameRef.childByAppendingPath("spriteQueue").childByAppendingPath(localPlayerId)
-    // self.onItemAdded = onItemAdded
+  init(match: Match) {
     
-    localSpriteQueueRef.observeEventType(.ChildAdded, withBlock: { data in
-        // TODO: deserialize to TappableSprite and call the callback
-    })
+    self.match = match
     
+    // /players/$match/$auth.id
+    self.localPlayerRef = TappyBaseConstants.playersRef()
+      .childByAppendingPath(match.ref.key)
+      .childByAppendingPath(match.localPlayer.id)
+    
+    // /players/$match/$auth.id
+    self.opponentRef = TappyBaseConstants.playersRef()
+      .childByAppendingPath(match.ref.key)
+      .childByAppendingPath(match.opponent.playerID)
+    
+    // /hotPotatoes/$match/$auth.id
+    self.hotPotatoRef = TappyBaseConstants.hotPotatoesRef()
+      .childByAppendingPath(match.ref.key)
   }
   
-  func addFirebaseSpriteToOpponentQueue() {
-    opponentSpriteQueueRef.childByAutoId().setValue(localPlayerRef.key)
+  
+  deinit {
+    self.match.ref.removeAllObservers()
+    self.localPlayerRef.removeAllObservers()
+    self.opponentRef.removeAllObservers()
+    self.hotPotatoRef.removeAllObservers()
   }
+  
   
 }

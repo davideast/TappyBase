@@ -8,14 +8,14 @@
 //  Previous Scene: TitleScene or GameOverScene
 //  Next Scene: GameOverScene
 
-import Foundation
+import GameKit
 import SpriteKit
 
 class SinglePlayerScene: CloudScene {
   
   let increaseInterval = 20.0
   var addEnemyTimeInterval = NSTimeInterval(2.0) // 2.0 per second
-  var player = Player(lives: 3, firebaseSpritesTapped: 0)
+  var player = LocalPlayer(localPlayer: GKLocalPlayer.localPlayer())
   var spawnRateLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
   
   let stages: [Int: Stage]

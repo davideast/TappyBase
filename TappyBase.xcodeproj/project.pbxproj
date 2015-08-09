@@ -60,7 +60,7 @@
 		BBBF0CC51B66AC00008EA651 /* TappBaseFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CC41B66AC00008EA651 /* TappBaseFonts.swift */; };
 		BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CC81B66AD68008EA651 /* TitleLabel.swift */; };
 		BBBF0CCB1B66BC28008EA651 /* UpdateIntervalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CCA1B66BC28008EA651 /* UpdateIntervalScene.swift */; };
-		BBBF0CCD1B66BF1B008EA651 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CCC1B66BF1B008EA651 /* Player.swift */; };
+		BBBF0CCD1B66BF1B008EA651 /* LocalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CCC1B66BF1B008EA651 /* LocalPlayer.swift */; };
 		BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */; };
 		BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF0CD21B67A1A2008EA651 /* Game.swift */; };
 		BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */; };
@@ -73,6 +73,9 @@
 		BBF4D30F1B6C092F00196F8E /* TappyBaseStages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */; };
 		E86C5E571B763EA3005E4672 /* GameKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5E561B763EA3005E4672 /* GameKitManager.swift */; };
 		E86C5E591B764452005E4672 /* GameKitAuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5E581B764452005E4672 /* GameKitAuthResult.swift */; };
+		E8E46C831B76A92700516B22 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C821B76A92700516B22 /* MatchManager.swift */; };
+		E8E46C851B76A9A100516B22 /* TappyBaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */; };
+		E8E46C871B76C04A00516B22 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C861B76C04A00516B22 /* Opponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +147,7 @@
 		BBBF0CC41B66AC00008EA651 /* TappBaseFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappBaseFonts.swift; sourceTree = "<group>"; };
 		BBBF0CC81B66AD68008EA651 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BBBF0CCA1B66BC28008EA651 /* UpdateIntervalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIntervalScene.swift; sourceTree = "<group>"; };
-		BBBF0CCC1B66BF1B008EA651 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BBBF0CCC1B66BF1B008EA651 /* LocalPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlayer.swift; sourceTree = "<group>"; };
 		BBBF0CD01B67A0F9008EA651 /* TappableFirebaseSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableFirebaseSprite.swift; sourceTree = "<group>"; };
 		BBBF0CD21B67A1A2008EA651 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BBF4D2FB1B67C55D00196F8E /* BoltSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoltSprite.swift; sourceTree = "<group>"; };
@@ -157,6 +160,9 @@
 		BBF4D30E1B6C092F00196F8E /* TappyBaseStages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseStages.swift; sourceTree = "<group>"; };
 		E86C5E561B763EA3005E4672 /* GameKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitManager.swift; sourceTree = "<group>"; };
 		E86C5E581B764452005E4672 /* GameKitAuthResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitAuthResult.swift; sourceTree = "<group>"; };
+		E8E46C821B76A92700516B22 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
+		E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseConstants.swift; sourceTree = "<group>"; };
+		E8E46C861B76C04A00516B22 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -218,6 +224,7 @@
 			children = (
 				BB6AEA971B73FB19002EA2DE /* GameManager.swift */,
 				E86C5E561B763EA3005E4672 /* GameKitManager.swift */,
+				E8E46C821B76A92700516B22 /* MatchManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -225,6 +232,7 @@
 		BB97C2181B72D2340066FF34 /* Multiplayer Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E8E46C881B7769C100516B22 /* Sprites */,
 				BB97C21F1B738B060066FF34 /* UI */,
 				BB97C2191B72D39C0066FF34 /* MultiplayerScene.swift */,
 				BB97C21B1B7381CE0066FF34 /* MatchmakingScene.swift */,
@@ -369,10 +377,11 @@
 				BBBD12521B568F920011CC6D /* FirebaseSpriteNode.swift */,
 				BBBD12541B568FD10011CC6D /* FirebaseNode.swift */,
 				BB9247751B58781C00138AAD /* FirebasePlayer.swift */,
-				BBBF0CCC1B66BF1B008EA651 /* Player.swift */,
+				BBBF0CCC1B66BF1B008EA651 /* LocalPlayer.swift */,
 				BBBF0CD21B67A1A2008EA651 /* Game.swift */,
 				BB30123D1B6FB3A700E95D40 /* GameSummary.swift */,
 				E86C5E581B764452005E4672 /* GameKitAuthResult.swift */,
+				E8E46C861B76C04A00516B22 /* Opponent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -398,6 +407,7 @@
 				BBBF0CC41B66AC00008EA651 /* TappBaseFonts.swift */,
 				BBBF0CA91B657E93008EA651 /* SKTexture.swift */,
 				BB97C21D1B73897E0066FF34 /* TappyBaseActions.swift */,
+				E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -462,6 +472,13 @@
 			sourceTree = "<group>";
 		};
 		BBBF0CBF1B66AADD008EA651 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		E8E46C881B7769C100516B22 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -620,6 +637,7 @@
 			files = (
 				BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */,
 				BB97C21A1B72D39C0066FF34 /* MultiplayerScene.swift in Sources */,
+				E8E46C871B76C04A00516B22 /* Opponent.swift in Sources */,
 				BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */,
 				BBBF0CA11B657C84008EA651 /* FirebaseSprite.swift in Sources */,
 				BBBF0C9F1B64423F008EA651 /* CloudSprite.swift in Sources */,
@@ -652,14 +670,16 @@
 				BB97C2271B7396E40066FF34 /* MatchLabel.swift in Sources */,
 				BBBF0CA81B657E3C008EA651 /* TappyBaseSounds.swift in Sources */,
 				BBBD12501B568C530011CC6D /* Helpers.swift in Sources */,
-				BBBF0CCD1B66BF1B008EA651 /* Player.swift in Sources */,
+				BBBF0CCD1B66BF1B008EA651 /* LocalPlayer.swift in Sources */,
 				BBA138381B5B3D63005FAEEC /* GameOverScene.swift in Sources */,
 				BB9247761B58781C00138AAD /* FirebasePlayer.swift in Sources */,
+				E8E46C831B76A92700516B22 /* MatchManager.swift in Sources */,
 				BBF4D2FC1B67C55D00196F8E /* BoltSprite.swift in Sources */,
 				BBBF0CAA1B657E93008EA651 /* SKTexture.swift in Sources */,
 				BBBF0CB71B669F39008EA651 /* TappableScene.swift in Sources */,
 				BBF4D3071B6B51FC00196F8E /* Stage.swift in Sources */,
 				BBBF0CD31B67A1A2008EA651 /* Game.swift in Sources */,
+				E8E46C851B76A9A100516B22 /* TappyBaseConstants.swift in Sources */,
 				BB97C21E1B73897E0066FF34 /* TappyBaseActions.swift in Sources */,
 				BBBF0CD11B67A0F9008EA651 /* TappableFirebaseSprite.swift in Sources */,
 				BBBF0CC91B66AD68008EA651 /* TitleLabel.swift in Sources */,

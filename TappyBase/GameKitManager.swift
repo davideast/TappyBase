@@ -11,7 +11,7 @@ import GameKit
 typealias AuthResultCallback = (authResult: GameKitAuthResult) -> Void
 typealias IdentityVerificationSignatureCallback = (identityVerificationSignature: [String: String!]) -> Void
 
-struct GameKitManager {
+class GameKitManager {
 
   
   /**
