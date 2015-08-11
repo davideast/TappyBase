@@ -39,11 +39,11 @@ class MatchManager {
         
       } else {
         
-        self.createMatch({ foundMatch in
+        self.createMatch { foundMatch in
           
           onOpponentJoin(match: foundMatch)
           
-        })
+        }
         
       }
       

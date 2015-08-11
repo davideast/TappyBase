@@ -7,9 +7,10 @@
 //
 
 import GameKit
+import SwiftHTTP
 
 typealias AuthResultCallback = (authResult: GameKitAuthResult) -> Void
-typealias IdentityVerificationSignatureCallback = (identityVerificationSignature: [String: String!]) -> Void
+typealias IdentityVerificationSignatureCallback = (identityVerificationSignature: IdentityVerificationSignature) -> Void
 
 class GameKitManager {
 
@@ -35,14 +36,7 @@ class GameKitManager {
         let baseString = signature.base64EncodedStringWithOptions(nil)
         let saltString = salt.base64EncodedStringWithOptions(nil)
         
-        let identityVerificationSignature = [
-          "publicKeyUrl": publicKeyUrl.absoluteString,
-          "timestamp": String(format: "%llu", timestamp),
-          "signature": baseString,
-          "salt": saltString,
-          "playerID": localPlayer.playerID,
-          "bundleID": NSBundle.mainBundle().bundleIdentifier
-        ]
+        let identityVerificationSignature = IdentityVerificationSignature(publicKeyUrl: publicKeyUrl, signature: signature, salt: salt, timestamp: timestamp, error: error, playerID: localPlayer.playerID)
         
         callback(identityVerificationSignature: identityVerificationSignature)
       })

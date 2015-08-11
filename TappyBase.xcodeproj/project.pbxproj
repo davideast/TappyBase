@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E00F9DFC9B85D470E615D27 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3629360D74BA2925559B4A /* libPods.a */; };
+		1EDA204BD3D9D8375212959F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37FEB42377D1333D093AC46 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BB30123C1B6FB2B900E95D40 /* MainLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */; };
 		BB30123E1B6FB3A700E95D40 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30123D1B6FB3A700E95D40 /* GameSummary.swift */; };
 		BB3012421B6FB71200E95D40 /* TappableMainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */; };
@@ -77,6 +77,7 @@
 		E8E46C851B76A9A100516B22 /* TappyBaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */; };
 		E8E46C871B76C04A00516B22 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C861B76C04A00516B22 /* Opponent.swift */; };
 		E8E46C8A1B7781E800516B22 /* HotPotatoSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C891B7781E800516B22 /* HotPotatoSprite.swift */; };
+		E8E46C8C1B78E03D00516B22 /* IdentityVerificationSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C8B1B78E03D00516B22 /* IdentityVerificationSignature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		47454BC61F3F63F7B5952D28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A37FEB42377D1333D093AC46 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB30123B1B6FB2B900E95D40 /* MainLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLabelNode.swift; sourceTree = "<group>"; };
 		BB30123D1B6FB3A700E95D40 /* GameSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
 		BB3012411B6FB71200E95D40 /* TappableMainLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableMainLabel.swift; sourceTree = "<group>"; };
@@ -165,8 +167,8 @@
 		E8E46C841B76A9A100516B22 /* TappyBaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappyBaseConstants.swift; sourceTree = "<group>"; };
 		E8E46C861B76C04A00516B22 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		E8E46C891B7781E800516B22 /* HotPotatoSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotPotatoSprite.swift; sourceTree = "<group>"; };
+		E8E46C8B1B78E03D00516B22 /* IdentityVerificationSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityVerificationSignature.swift; sourceTree = "<group>"; };
 		EABE7DB0FA3C0CB3E5ADC377 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		EE3629360D74BA2925559B4A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E00F9DFC9B85D470E615D27 /* libPods.a in Frameworks */,
+				1EDA204BD3D9D8375212959F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +193,7 @@
 		04B27C3887E5F5F66FC7FC25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE3629360D74BA2925559B4A /* libPods.a */,
+				A37FEB42377D1333D093AC46 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,6 +386,7 @@
 				BB30123D1B6FB3A700E95D40 /* GameSummary.swift */,
 				E86C5E581B764452005E4672 /* GameKitAuthResult.swift */,
 				E8E46C861B76C04A00516B22 /* Opponent.swift */,
+				E8E46C8B1B78E03D00516B22 /* IdentityVerificationSignature.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				BBBD12121B567D5D0011CC6D /* Frameworks */,
 				BBBD12131B567D5D0011CC6D /* Resources */,
 				D85561FFC249F245003D90C7 /* Copy Pods Resources */,
+				3D84F9EE42C978CAAD82C31C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -601,6 +605,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3D84F9EE42C978CAAD82C31C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		711CD65F1BAC655855A6B545 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -639,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF4D3021B6A505600196F8E /* TappableBoltSprite.swift in Sources */,
+				E8E46C8C1B78E03D00516B22 /* IdentityVerificationSignature.swift in Sources */,
 				BB97C21A1B72D39C0066FF34 /* MultiplayerScene.swift in Sources */,
 				E8E46C871B76C04A00516B22 /* Opponent.swift in Sources */,
 				BBBF0CA61B657DFA008EA651 /* TappyBaseImages.swift in Sources */,

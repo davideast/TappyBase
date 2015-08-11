@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameKit
+import SwiftHTTP
 
 class MatchmakingScene : CloudScene {
   
@@ -70,7 +71,7 @@ class MatchmakingScene : CloudScene {
     
     let fadeInMatch = SKAction.sequence([
       SKAction.runBlock({
-        self.findingLabel.runAction(SKAction.sequence([SKAction.fadeOutWithDuration(1.0), SKAction.removeFromParent()]))
+        self.findingLabel.runAction(SKAction.sequence([SKAction.fadeOutWithDuration(0.3), SKAction.removeFromParent()]))
       }),
       SKAction.waitForDuration(1.0),
       SKAction.runBlock({
