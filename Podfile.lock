@@ -1,13 +1,10 @@
 PODS:
   - Firebase (2.3.2)
-  - SwiftHTTP (0.9.5)
 
 DEPENDENCIES:
   - Firebase
-  - SwiftHTTP (~> 0.9.4)
 
 SPEC CHECKSUMS:
   Firebase: 02fbeacfe19970856c872321788194524f21ffed
-  SwiftHTTP: cd7b248bc07db02926ff54cf19b580b78f7abfa1
 
 COCOAPODS: 0.38.2

@@ -27,42 +27,42 @@ func makeCIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) ->
 struct TappyBaseColors {
   
   static func darkGrayColor() -> SKColor  {
-    return makeColor(50, 47, 49, 1.0)
+    return makeColor(50, green: 47, blue: 49, alpha: 1.0)
   }
   
   static func yellowColor() -> SKColor  {
-    return makeColor(251, 208, 66, 1.0)
+    return makeColor(251, green: 208, blue: 66, alpha: 1.0)
   }
   
   static func lightBlueColor() -> SKColor {
-    return makeColor(162, 217, 254, 1.0)
+    return makeColor(162, green: 217, blue: 254, alpha: 1.0)
   }
   
   static func skyBlueColor() -> SKColor {
-    return makeColor(41, 177, 253, 1.0)
+    return makeColor(41, green: 177, blue: 253, alpha: 1.0)
   }
   
   static func lightBlueCIColor() -> CIColor {
-    return makeCIColor(162, 217, 254, 1.0)
+    return makeCIColor(162, green: 217, blue: 254, alpha: 1.0)
   }
   
   static func skyBlueCIColor() -> CIColor {
-    return makeCIColor(41, 177, 253, 1.0)
+    return makeCIColor(41, green: 177, blue: 253, alpha: 1.0)
   }
   
   static func lightSkyBlueColor() -> SKColor {
-    return makeColor(157, 220, 251, 1.0)
+    return makeColor(157, green: 220, blue: 251, alpha: 1.0)
   }
   
   static func nightSkyBlueColor() -> SKColor {
-    return makeColor(2, 29, 44, 1.0)
+    return makeColor(2, green: 29, blue: 44, alpha: 1.0)
   }
   
   static func orangeSkyColor() -> SKColor {
-    return makeColor(248, 182, 76, 1.0)
+    return makeColor(248, green: 182, blue: 76, alpha: 1.0)
   }
   
   static func redSkyColor() -> SKColor {
-    return makeColor(227, 88, 29, 1.0)
+    return makeColor(227, green: 88, blue: 29, alpha: 1.0)
   }
 }

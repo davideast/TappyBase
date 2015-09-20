@@ -44,7 +44,7 @@ class MainGameScene: SKScene {
     
     let topColor = TappyBaseColors.skyBlueCIColor()
     let bottomColor = TappyBaseColors.lightBlueCIColor()
-    let bgTexture = textureWithVerticalGradientOfSize(size, topColor, bottomColor)
+    let bgTexture = textureWithVerticalGradientOfSize(size, topColor: topColor, bottomColor: bottomColor)
     
     let bgNode = SKSpriteNode(texture: bgTexture)
     bgNode.position = CGPointMake(size.width / 2, size.height / 2)
@@ -76,7 +76,7 @@ class MainGameScene: SKScene {
       "hits": 0,
       "lives": 5,
       "userId": userId
-    ])
+      ])
     playerRef.onDisconnectRemoveValue()
     
     playerSpriteRef = playerSprites.childByAppendingPath(userId)
@@ -85,7 +85,7 @@ class MainGameScene: SKScene {
     playersRef.observeEventType(.Value, withBlock: { snap in
       var newUpdates = [FDataSnapshot]()
       for child in snap.children {
-
+        
         let snapshot = child as! FDataSnapshot
         
         if snapshot.key != self.userId {
@@ -121,51 +121,52 @@ class MainGameScene: SKScene {
     super.willMoveFromView(view)
   }
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    let touch =  touches.first as! UITouch
-    let touchLocation = touch.locationInNode(self)
-    let node = nodeAtPoint(touchLocation)
-    
-    if node.name == TappyBaseImages.firebaseSprite() {
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch = touches.first {
+      let touchLocation = touch.locationInNode(self)
+      let node = nodeAtPoint(touchLocation)
       
-      node.removeAllActions()
-      
-      let playSoundAction = SKAction.playSoundFileNamed(TappyBaseSounds.firebaseTappedSx(), waitForCompletion: false)
-      let fadeAction = SKAction.fadeOutWithDuration(0.1)
-      let removeAction = SKAction.runBlock({
+      if node.name == TappyBaseImages.firebaseSprite() {
         
-        node.removeFromParent()
+        node.removeAllActions()
         
-        self.hits++
-        self.hitsLabel.text = "\(self.hits) - \(self.opponentHits)"
-        self.playerRef.updateChildValues(["hits": self.hits])
-        if self.hits % 2 == 0 {
+        let playSoundAction = SKAction.playSoundFileNamed(TappyBaseSounds.firebaseTappedSx(), waitForCompletion: false)
+        let fadeAction = SKAction.fadeOutWithDuration(0.1)
+        let removeAction = SKAction.runBlock({
           
-          if self.activePlayers.count > 0 {
-            let lower : UInt32 = 0
-            let upper : UInt32 = UInt32(self.activePlayers.count - 1)
-            let randomNumber = arc4random_uniform(upper - lower) + lower
-            let player = self.activePlayers[Int(randomNumber)]
-            let playerKey = player.ref.key
+          node.removeFromParent()
+          
+          self.hits++
+          self.hitsLabel.text = "\(self.hits) - \(self.opponentHits)"
+          self.playerRef.updateChildValues(["hits": self.hits])
+          if self.hits % 2 == 0 {
             
-            if playerKey != self.userId {
-              self.playerSprites.childByAppendingPath(playerKey).childByAutoId().setValue(self.userId)
+            if self.activePlayers.count > 0 {
+              let lower : UInt32 = 0
+              let upper : UInt32 = UInt32(self.activePlayers.count - 1)
+              let randomNumber = arc4random_uniform(upper - lower) + lower
+              let player = self.activePlayers[Int(randomNumber)]
+              let playerKey = player.ref.key
+              
+              if playerKey != self.userId {
+                self.playerSprites.childByAppendingPath(playerKey).childByAutoId().setValue(self.userId)
+              }
             }
           }
-        }
+          
+        })
+        let sequence = SKAction.sequence([playSoundAction, fadeAction, removeAction])
         
-      })
-      let sequence = SKAction.sequence([playSoundAction, fadeAction, removeAction])
+        node.runAction(sequence)
+        
+      }
       
-      node.runAction(sequence)
-      
-    }
-    
-    if node.name == "back-button" {
-      backgroundMusicPlayer.stop()
-      self.view?.presentScene(TitleGameScene(size: self.view!.bounds.size))
-      self.playerRef.removeValue()
-      self.playerSpriteRef.removeValue()
+      if node.name == "back-button" {
+        backgroundMusicPlayer.stop()
+        self.view?.presentScene(TitleGameScene(size: self.view!.bounds.size))
+        self.playerRef.removeValue()
+        self.playerSpriteRef.removeValue()
+      }
     }
     
   }
@@ -175,14 +176,14 @@ class MainGameScene: SKScene {
     let firebaseNode = SKSpriteNode(imageNamed: TappyBaseImages.firebaseSprite())
     
     // Determine where to spawn the monster along the Y axis
-    let actualY = random(min: firebaseNode.size.height/2, size.height - firebaseNode.size.height/2)
+    let actualY = random(min: firebaseNode.size.height/2, max: size.height - firebaseNode.size.height/2)
     
     // Position the monster slightly off-screen along the right edge,
     // and along a random position along the Y axis as calculated above
     let position = CGPoint(x: size.width + firebaseNode.size.width/2, y: actualY)
     
     // Determine speed of the monster
-    let actualDuration = random(min: CGFloat(self.minSpeed), CGFloat(4.0))
+    let actualDuration = random(min: CGFloat(self.minSpeed), max: CGFloat(4.0))
     
     return FirebaseSpriteNode(yAxis: actualY, position: position, duration: actualDuration)
   }
@@ -295,7 +296,7 @@ class MainGameScene: SKScene {
       
       addEnemyTimeInterval = 0.50
       minSpeed = 1.5
-
+      
     } else if totalGameTime > 120 {
       
       addEnemyTimeInterval = 0.55

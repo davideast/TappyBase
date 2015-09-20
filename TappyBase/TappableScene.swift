@@ -10,15 +10,16 @@ import SpriteKit
 
 class TappableScene: UpdateIntervalScene {
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     super.touchesBegan(touches, withEvent: event)
     
-    let touch =  touches.first as! UITouch
-    let touchLocation = touch.locationInNode(self)
-    let node = nodeAtPoint(touchLocation)
-    
-    if let tappableNode = node as? TappableNode {
-      tappableNode.tappedAction(self)
+    if let touch =  touches.first {
+      let touchLocation = touch.locationInNode(self)
+      let node = nodeAtPoint(touchLocation)
+      
+      if let tappableNode = node as? TappableNode {
+        tappableNode.tappedAction(self)
+      }
     }
     
   }

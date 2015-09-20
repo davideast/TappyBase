@@ -32,7 +32,6 @@
 		BBBD12241B567D5D0011CC6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBBD12221B567D5D0011CC6D /* Main.storyboard */; };
 		BBBD12261B567D5D0011CC6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBBD12251B567D5D0011CC6D /* Images.xcassets */; };
 		BBBD12291B567D5D0011CC6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBD12271B567D5D0011CC6D /* LaunchScreen.xib */; };
-		BBBD12351B567D5D0011CC6D /* TappyBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD12341B567D5D0011CC6D /* TappyBaseTests.swift */; };
 		BBBD12411B5689920011CC6D /* tapped-base.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBBD123F1B5689920011CC6D /* tapped-base.wav */; };
 		BBBD12421B5689920011CC6D /* title-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBBD12401B5689920011CC6D /* title-music.mp3 */; };
 		BBBD12441B5689DE0011CC6D /* base-tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = BBBD12431B5689DE0011CC6D /* base-tap.wav */; };
@@ -80,16 +79,6 @@
 		E8E46C8C1B78E03D00516B22 /* IdentityVerificationSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E46C8B1B78E03D00516B22 /* IdentityVerificationSignature.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BBBD122F1B567D5D0011CC6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BBBD120D1B567D5D0011CC6D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BBBD12141B567D5D0011CC6D;
-			remoteInfo = TappyBase;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		47454BC61F3F63F7B5952D28 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A37FEB42377D1333D093AC46 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +108,6 @@
 		BBBD12231B567D5D0011CC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBBD12251B567D5D0011CC6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBBD12281B567D5D0011CC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BBBD122E1B567D5D0011CC6D /* TappyBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TappyBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBD12331B567D5D0011CC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBBD12341B567D5D0011CC6D /* TappyBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappyBaseTests.swift; sourceTree = "<group>"; };
 		BBBD123F1B5689920011CC6D /* tapped-base.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tapped-base.wav"; sourceTree = "<group>"; };
@@ -177,13 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EDA204BD3D9D8375212959F /* Pods.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BBBD122B1B567D5D0011CC6D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				BBBD12151B567D5D0011CC6D /* TappyBase.app */,
-				BBBD122E1B567D5D0011CC6D /* TappyBaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -514,40 +494,19 @@
 			productReference = BBBD12151B567D5D0011CC6D /* TappyBase.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BBBD122D1B567D5D0011CC6D /* TappyBaseTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BBBD123B1B567D5D0011CC6D /* Build configuration list for PBXNativeTarget "TappyBaseTests" */;
-			buildPhases = (
-				BBBD122A1B567D5D0011CC6D /* Sources */,
-				BBBD122B1B567D5D0011CC6D /* Frameworks */,
-				BBBD122C1B567D5D0011CC6D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BBBD12301B567D5D0011CC6D /* PBXTargetDependency */,
-			);
-			name = TappyBaseTests;
-			productName = TappyBaseTests;
-			productReference = BBBD122E1B567D5D0011CC6D /* TappyBaseTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BBBD120D1B567D5D0011CC6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = davideast;
 				TargetAttributes = {
 					BBBD12141B567D5D0011CC6D = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					BBBD122D1B567D5D0011CC6D = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = BBBD12141B567D5D0011CC6D;
 					};
 				};
 			};
@@ -565,7 +524,6 @@
 			projectRoot = "";
 			targets = (
 				BBBD12141B567D5D0011CC6D /* TappyBase */,
-				BBBD122D1B567D5D0011CC6D /* TappyBaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -592,13 +550,6 @@
 				BBBD12241B567D5D0011CC6D /* Main.storyboard in Resources */,
 				BBBD12441B5689DE0011CC6D /* base-tap.wav in Resources */,
 				BBF4D2FF1B6A500E00196F8E /* lifeup-2.wav in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BBBD122C1B567D5D0011CC6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,23 +663,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BBBD122A1B567D5D0011CC6D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BBBD12351B567D5D0011CC6D /* TappyBaseTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BBBD12301B567D5D0011CC6D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BBBD12141B567D5D0011CC6D /* TappyBase */;
-			targetProxy = BBBD122F1B567D5D0011CC6D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BBBD12221B567D5D0011CC6D /* Main.storyboard */ = {
@@ -772,6 +707,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -788,7 +724,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -816,6 +752,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -826,7 +763,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -840,6 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TappyBase/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TappyBase/TappyBase-Bridging-Header.h";
@@ -854,43 +792,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TappyBase/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TappyBase/TappyBase-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		BBBD123C1B567D5D0011CC6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TappyBaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TappyBase.app/TappyBase";
-			};
-			name = Debug;
-		};
-		BBBD123D1B567D5D0011CC6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TappyBaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TappyBase.app/TappyBase";
 			};
 			name = Release;
 		};
@@ -911,15 +816,6 @@
 			buildConfigurations = (
 				BBBD12391B567D5D0011CC6D /* Debug */,
 				BBBD123A1B567D5D0011CC6D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BBBD123B1B567D5D0011CC6D /* Build configuration list for PBXNativeTarget "TappyBaseTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BBBD123C1B567D5D0011CC6D /* Debug */,
-				BBBD123D1B567D5D0011CC6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

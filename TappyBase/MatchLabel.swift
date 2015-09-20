@@ -37,7 +37,7 @@ class MatchLabel: SKSpriteNode {
     let size = CGSize(width: parentFrame.width - 40, height: versusLabel.frame.height + 40)
     let ciBlack = CIColor(red: 255, green: 255, blue: 255, alpha: 0.2)
     let texture = SKTexture(size: size, topColor: ciBlack, bottomColor: ciBlack)
-    super.init(texture: texture, color: nil, size: size)
+    super.init(texture: texture, color: UIColor.clearColor(), size: size)
     
     addChild(ownLabel)
     addChild(opponentLabel)

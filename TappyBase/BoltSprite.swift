@@ -29,7 +29,7 @@ class BoltSprite: SKSpriteNode {
     }
     
     let texture = SKTexture(imageNamed: imageName)
-    super.init(texture: texture, color: nil, size: texture.size())
+    super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
     name = imageName
   }
 

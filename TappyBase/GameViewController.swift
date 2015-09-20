@@ -45,7 +45,7 @@ class GameViewController: UIViewController {
     GameKitManager.authenticatePlayer { authResult in
       
       if authResult.hasError {
-        println(authResult.error?.userInfo?.description)
+        print(authResult.error?.userInfo.description)
         return
       }
       

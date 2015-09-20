@@ -96,29 +96,30 @@ class GameOverScene: CloudScene {
     backgroundMusicPlayer.stop()
   }
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    let touch =  touches.first as! UITouch
-    let touchLocation = touch.locationInNode(self)
-    
-    let node = nodeAtPoint(touchLocation)
-    if node.name == "replay-button" {
-      self.backgroundMusicPlayer.stop()
-      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-      let singlePlayScene = SinglePlayerScene(size: self.size)
-      self.view?.presentScene(singlePlayScene, transition: reveal)
-    }
-    
-    if node.name == "menu-button" {
-      self.backgroundMusicPlayer.stop()
-      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-      let titleScene = TitleGameScene(size: self.size)
-      self.view?.presentScene(titleScene, transition: reveal)
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let touch =  touches.first {
+      let touchLocation = touch.locationInNode(self)
+      
+      let node = nodeAtPoint(touchLocation)
+      if node.name == "replay-button" {
+        self.backgroundMusicPlayer.stop()
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        let singlePlayScene = SinglePlayerScene(size: self.size)
+        self.view?.presentScene(singlePlayScene, transition: reveal)
+      }
+      
+      if node.name == "menu-button" {
+        self.backgroundMusicPlayer.stop()
+        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        let titleScene = TitleGameScene(size: self.size)
+        self.view?.presentScene(titleScene, transition: reveal)
+      }
     }
     
   }
   
   func createButtonLabel(text: String, name: String, pairingHeader: SKLabelNode, direction: ButtonLabelDirection) -> SKLabelNode {
-    var buttonLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let buttonLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     
     buttonLabel.text = text
     buttonLabel.fontSize = 34
@@ -138,7 +139,7 @@ class GameOverScene: CloudScene {
   }
   
   func createHeaderLabel(text: String, topOffset: CGFloat) -> SKLabelNode {
-    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     label.fontSize = 48
     label.text = text
     label.fontColor = SKColor.whiteColor()
@@ -147,10 +148,10 @@ class GameOverScene: CloudScene {
     label.userInteractionEnabled = false
     return label
   }
-
+  
   func createMetricLabel(text: String, pairingHeader: SKLabelNode, order: Int) -> SKLabelNode {
     let orderHeight = CGFloat(order) * 50
-    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     label.fontSize = 28
     label.text = text + ":"
     label.fontColor = TappyBaseColors.yellowColor()
@@ -162,7 +163,7 @@ class GameOverScene: CloudScene {
   }
   
   func createMetricValueLabel(text: String, pairingHeader: SKLabelNode, pairingLabel: SKLabelNode) -> SKLabelNode {
-    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     label.fontSize = 28
     label.text = text
     label.fontColor = SKColor.whiteColor()
@@ -174,7 +175,7 @@ class GameOverScene: CloudScene {
   }
   
   func createHighScoreLabel(pairingLabel: SKLabelNode) -> SKLabelNode {
-    var label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let label = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     label.fontSize = 10
     label.text = "High Score!"
     label.fontColor = TappyBaseColors.yellowColor()

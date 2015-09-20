@@ -28,11 +28,11 @@ struct IdentityVerificationSignature {
   }
   
   func toJSON() -> [String: AnyObject] {
-    let baseString = signature.base64EncodedStringWithOptions(nil)
-    let saltString = salt.base64EncodedStringWithOptions(nil)
+    let baseString = signature.base64EncodedStringWithOptions([])
+    let saltString = salt.base64EncodedStringWithOptions([])
     
     let identityVerificationSignature = [
-      "publicKeyUrl": publicKeyUrl.absoluteString!,
+      "publicKeyUrl": publicKeyUrl.absoluteString,
       "timestamp": String(format: "%llu", timestamp),
       "signature": baseString,
       "salt": saltString,

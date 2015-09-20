@@ -14,7 +14,7 @@ extension SKTexture {
   
   convenience init(size:CGSize, topColor: CIColor, bottomColor: CIColor) {
     let context = CIContext(options: nil)
-    let gradientFilter = CIFilter(name: "CILinearGradient")
+    let gradientFilter = CIFilter(name: "CILinearGradient")!
     gradientFilter.setDefaults()
     
     let startVector = CIVector(x: size.width/2, y: 0)
@@ -26,9 +26,9 @@ extension SKTexture {
     gradientFilter.setValue(bottomColor, forKey: "inputColor0")
     gradientFilter.setValue(topColor, forKey: "inputColor1")
     
-    let cgImg = context.createCGImage(gradientFilter.outputImage, fromRect: CGRectMake(0, 0, size.width, size.height))
+    let cgImg = context.createCGImage(gradientFilter.outputImage!, fromRect: CGRectMake(0, 0, size.width, size.height))
     
-    let image = UIImage(CGImage: cgImg)!
+    // let image = UIImage(CGImage: cgImg)
     self.init(CGImage:cgImg)
   }
   

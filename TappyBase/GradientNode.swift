@@ -18,7 +18,7 @@ class GradientNode : SKSpriteNode {
     let bgNode = SKSpriteNode(texture: bgTexture)
     bgNode.position = CGPointMake(textureSize.width / 2, textureSize.height / 2)
     bgNode.zPosition = zPosition
-    super.init(texture: bgTexture, color: nil, size: bgTexture.size())
+    super.init(texture: bgTexture, color: UIColor.clearColor(), size: bgTexture.size())
   }
   
   required init(coder aDecoder: NSCoder) {

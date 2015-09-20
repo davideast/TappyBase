@@ -8,7 +8,6 @@
 
 import SpriteKit
 import GameKit
-import SwiftHTTP
 
 class MatchmakingScene : CloudScene {
   

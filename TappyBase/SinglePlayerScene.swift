@@ -122,7 +122,7 @@ class SinglePlayerScene: CloudScene {
     
     // Initial stage label
     
-    var stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+    let stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
     stageLabel.text = "Stage 1"
     stageLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
     stageLabel.fontSize = 52
@@ -167,7 +167,7 @@ class SinglePlayerScene: CloudScene {
         currentStage++
         
         // TODO: Refactor to subclassed node
-        var stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
+        let stageLabel = SKLabelNode(fontNamed: TappyBaseFonts.mainFont())
         stageLabel.text = "Stage \(currentStage)"
         stageLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
         stageLabel.fontSize = 52
@@ -196,7 +196,7 @@ class SinglePlayerScene: CloudScene {
       }
     } else {
       // Game over?
-      println("it boke")
+      print("it boke")
     }
     
   }
@@ -211,7 +211,7 @@ class SinglePlayerScene: CloudScene {
         self.lives--
     })
     
-    moveFromLeft(firebaseSprite, size, 1.5, 2.3, {
+    moveFromLeft(firebaseSprite, size: size, durationMin: 1.5, durationMax: 2.3, onDone: {
       firebaseSprite.onDone?()
     })
     
@@ -229,7 +229,7 @@ class SinglePlayerScene: CloudScene {
     let lifeUpSprite = TappableBoltSprite { _ in
       self.lives++
     }
-    moveFromLeft(lifeUpSprite, size, 1.0, 2.0) {
+    moveFromLeft(lifeUpSprite, size: size, durationMin: 1.0, durationMax: 2.0) {
       lifeUpSprite.removeFromParent()
     }
     addChild(lifeUpSprite)

@@ -41,7 +41,7 @@ class MultiplayerScene: SinglePlayerScene {
     mainHUD.pauseButton.removeFromParent()
   }
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     super.touchesBegan(touches, withEvent: event)
   }
   
@@ -56,7 +56,7 @@ class MultiplayerScene: SinglePlayerScene {
         self.gameManager.gameOver()
     })
     
-    moveFromLeft(hotPotatoSprite, size, 1.5, 2.3, {
+    moveFromLeft(hotPotatoSprite, size: size, durationMin: 1.5, durationMax: 2.3, onDone: {
       hotPotatoSprite.onDone?()
     })
     

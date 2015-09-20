@@ -44,10 +44,10 @@ class CloudScene: TappableScene {
     
     // Clouds
     for index in 0...10 {
-      var indexAsDouble = Double(index)
-      var xPos = 20.0 * (indexAsDouble * 5.0)
-      var yPos = -10.0
-      var position = CGPoint(x: xPos, y: yPos)
+      let indexAsDouble = Double(index)
+      let xPos = 20.0 * (indexAsDouble * 5.0)
+      let yPos = -10.0
+      let position = CGPoint(x: xPos, y: yPos)
       let cloud = CloudSprite()
       cloud.position = position
       cloud.anchorPoint = CGPoint(x: 0, y: 0)
@@ -89,10 +89,10 @@ class CloudScene: TappableScene {
     
     // scene bounderies
     let lowerXBound : CGFloat = -300
-    var higherXBound : CGFloat = self.frame.width + 300
+    let higherXBound : CGFloat = self.frame.width + 300
     
     var x = pos.x
-    var y = pos.y
+    let y = pos.y
     
     if x < lowerXBound {
       x += higherXBound

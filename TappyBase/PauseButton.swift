@@ -15,7 +15,7 @@ class PauseButton: SKSpriteNode, TappableNode {
   
   init() {
     let texture = SKTexture(imageNamed: TappyBaseImages.pauseButton())
-    super.init(texture: texture, color: nil, size: texture.size())
+    super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
   }
 
   required init?(coder aDecoder: NSCoder) {

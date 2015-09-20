@@ -19,7 +19,7 @@ class SinglePlayerHud: SKSpriteNode {
   var onPauseTapped: HudCallback?
   
   init(size: CGSize, onPausedTapped: HudCallback?) {
-    super.init(texture: nil, color: nil, size: size)
+    super.init(texture: nil, color: UIColor.clearColor(), size: size)
     self.onPauseTapped = onPausedTapped
     displayHUD()
   }

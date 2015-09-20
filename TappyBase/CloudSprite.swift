@@ -13,7 +13,7 @@ class CloudSprite: SKSpriteNode {
   
   init() {
     let texture = SKTexture(imageNamed: TappyBaseImages.cloudImage())
-    super.init(texture: texture, color: nil, size: texture.size())
+    super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
   }
   
   required init(coder aDecoder: NSCoder) {

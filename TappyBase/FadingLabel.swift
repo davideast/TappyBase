@@ -15,7 +15,7 @@ class FadingLabel: SKLabelNode {
     runAction(glow())
   }
   
-  override init(fontNamed fontName: String!) {
+  override init(fontNamed fontName: String?) {
     super.init(fontNamed: fontName)
     runAction(glow())
   }

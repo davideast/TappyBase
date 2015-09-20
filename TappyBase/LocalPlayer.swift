@@ -18,19 +18,19 @@ struct LocalPlayer {
   
   var id: String {
     get {
-      return self.gkPlayer.playerID
+      return self.gkPlayer.playerID!
     }
   }
   
   var alias: String {
     get {
-      return self.gkPlayer.alias
+      return self.gkPlayer.alias!
     }
   }
   
   var displayName: String {
     get {
-      return self.gkPlayer.displayName
+      return self.gkPlayer.displayName!
     }
   }
   
